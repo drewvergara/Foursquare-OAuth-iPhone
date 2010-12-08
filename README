@@ -1,0 +1,17 @@
+Foursquare+OAuth Source and Example for iPhone
+Created by Andrew Vergara
+
+If you use it, please include the following text somewhere in your application's user-facing text:
+"Includes Foursquare+OAuth code by Andrew Vergara"
+
+The goal of this is to create a drop-in code package for iPhone apps that want to access Foursquare APIv2 via OAuth. 
+
+This project is heavily influenced by Ben Gottlieb's Twitter-OAuth-iPhone(https://github.com/bengottlieb/Twitter-OAuth-iPhone). 
+Hopefully, I wrote it well enough that it is easily digestible.
+
+
+Enjoy, and please let me know if you have any feedback!
+
+Andrew Vergara
+drewvergara@gmail.com
+
