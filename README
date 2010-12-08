@@ -15,3 +15,8 @@ Enjoy, and please let me know if you have any feedback!
 Andrew Vergara
 drewvergara@gmail.com
 
+
+
+-------------------------------------------------------
+12-08-10: Since this is currently for prototypical purposes most of the actions are written in the viewcontroller.  Eventually, I will abstract these out.
+

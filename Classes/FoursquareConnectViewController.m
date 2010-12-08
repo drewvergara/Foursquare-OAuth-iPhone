@@ -33,8 +33,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	FSConnectWebView *connectView = [[FSConnectWebView alloc] initWithNibName:@"FSConnectWebView" bundle:[NSBundle mainBundle]];
 	
+	//This is both temporary and for demo purposes.  Eventually, this will change.
+	FSConnectWebView *connectView = [[FSConnectWebView alloc] initWithNibName:@"FSConnectWebView" bundle:[NSBundle mainBundle]];	
 	[self.view addSubview:connectView.view];
 	
 }

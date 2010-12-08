@@ -13,23 +13,27 @@
 
 @synthesize loginView, activityIndicator, foursquareOverlay;
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//This application will not work until you enter your Foursquare application's API key and callback URL
 static NSString *clientID = @"FWILH0ZTEEEYKNFDTGYCTV1HNW002DBSEJFPDCORZL3SEGJ5";
 static NSString *dummyRedirect = @"http://www.imaginepixel.com";
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 #pragma mark -
 #pragma mark View Lifecycle
 
-// The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
 /*
- - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
- self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
- if (self) {
- // Custom initialization.
- }
- return self;
- }
- */
+ Create the webview with the necessary URL.  The correct URL should be:
+ https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=token&redirect_uri=YOUR_REGISTERED_REDIRECT_URI&display=touch
 
+ However, since Foursquare APIv2 is currently in beta using the display=touch does not work.
+ As a work around this URL will work:
+ https://foursquare.com/touch/login?continue=/oauth2/authenticate?client_id=CLIENT_ID&response_type=token&redirect_uri=YOUR_REGISTERED_REDIRECT_URI
+ 
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -40,7 +44,6 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	urlWithIDandDummyRedirect = [urlWithIDandDummyRedirect stringByAppendingString:@"%26response_type%3Dtoken%26display%3Dtouch%26redirect_uri%3D"];
 	urlWithIDandDummyRedirect = [urlWithIDandDummyRedirect stringByAppendingString:dummyRedirect];
 	NSURL *url = [NSURL URLWithString:urlWithIDandDummyRedirect];
-	//@"https://foursquare.com/touch/login?continue=/oauth2/authenticate%3Fclient_id%3DLY3ANXJ015OMH4XHGEX3TDQQQDPZGHNNXISKQ4ACDHLS5TFY%26response_type%3Dtoken%26display%3Dtouch%26redirect_uri%3Dhttp://imaginepixel.com"	
 	NSURLRequest *req = [NSURLRequest requestWithURL:url];
 	
 	[loginView loadRequest:req];
@@ -54,38 +57,6 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
     // e.g. self.myOutlet = nil;
 }
 
-- (void)webViewDidStartLoad:(UIWebView *)webView{
-	activityIndicator.hidden = NO;
-	[activityIndicator startAnimating];
-	
-	[self showOverlay];
-}
-
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-	activityIndicator.hidden = YES;
-	[activityIndicator stopAnimating];
-
-	NSURLRequest *currentRequest = [webView request];
-	NSURL *currentURL = [currentRequest URL];
-	NSString *currentURLString = currentURL.absoluteString;
-	NSArray *splitURL = [currentURLString componentsSeparatedByString:@"/#access_token="];
-	NSString *dummyURL = [splitURL objectAtIndex:0];
-	
-	
-	if ([dummyURL isEqualToString:dummyRedirect]) {
-		[loginView removeFromSuperview];
-		NSString *token = [splitURL objectAtIndex:1];
-		NSLog(@"access_token = %@", token);
-	}
-	
-	
-	NSLog(@"Current URL is %@", currentURL.absoluteString);
-	
-	
-	
-	[self hideOverlay];
-}
-
 /*
  // Override to allow orientations other than the default portrait orientation.
  - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
@@ -97,7 +68,11 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 
 # pragma mark -
 # pragma mark Overlay Image
-
+/*
+ We are constructing an UIImageView Overlay.  This is purely for aesthetical purposes.  
+ Since the app is already on the phone it doesn't make sense to show users the redirect URL.
+ Thus, we are showing an overlay when a redirect occurs and we remove the webview when we get the access_token
+ */
 - (void)constructOverlay
 {
 	UIImage *overlayImage = [UIImage imageNamed:@"foursquare-overlay.png"];
@@ -120,6 +95,39 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 {
 	foursquareOverlay.hidden = YES;
 }
+
+
+#pragma mark WebView Reactions
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+	activityIndicator.hidden = NO;
+	[activityIndicator startAnimating];
+	
+	[self showOverlay];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+	NSLog(@"Current URL: %@", currentURL.absoluteString);
+	
+	activityIndicator.hidden = YES;
+	[activityIndicator stopAnimating];
+	
+	NSURLRequest *currentRequest = [webView request];
+	NSURL *currentURL = [currentRequest URL];
+	NSString *currentURLString = currentURL.absoluteString;
+	NSArray *splitURL = [currentURLString componentsSeparatedByString:@"/#access_token="];
+	NSString *dummyURL = [splitURL objectAtIndex:0];
+	
+	
+	if ([dummyURL isEqualToString:dummyRedirect]) {
+		[loginView removeFromSuperview];
+		NSString *token = [splitURL objectAtIndex:1];
+		NSLog(@"access_token = %@", token);
+	}
+	
+	[self hideOverlay];
+}
+
 
 #pragma mark -
 #pragma mark Memory Management
