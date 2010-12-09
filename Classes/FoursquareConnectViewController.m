@@ -3,7 +3,7 @@
 //  FoursquareConnect
 //
 //  Created by Andrew Vergara on 12/7/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 72andSunny. All rights reserved.
 //
 
 #import "FoursquareConnectViewController.h"
@@ -35,9 +35,16 @@
     [super viewDidLoad];
 	
 	//This is both temporary and for demo purposes.  Eventually, this will change.
-	FSConnectWebView *connectView = [[FSConnectWebView alloc] initWithNibName:@"FSConnectWebView" bundle:[NSBundle mainBundle]];	
+	//We must pass a referece of this object to FSConnect and what function to callback once the token is retrieved.
+	FSConnectWebView *connectView = [[FSConnectWebView alloc] initWithNibName:@"FSConnectWebView" bundle:[NSBundle mainBundle] caller:self callback:@selector(storeFoursquareToken:)];
 	[self.view addSubview:connectView.view];
 	
+}
+
+//This is the callback called when foursquare has returned the OAuth token.
+- (void)storeFoursquareToken:(NSString *)token
+{
+	NSLog(@"access_token = %@", token);
 }
 
 

@@ -3,7 +3,7 @@
 //  FoursquareConnect
 //
 //  Created by Andrew Vergara on 12/7/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 72andSunny. All rights reserved.
 //
 
 #import "FoursquareConnectAppDelegate.h"

@@ -10,18 +10,26 @@
 
 
 @interface FSConnectWebView : UIViewController <UIWebViewDelegate>{
+	NSObject *requestor;
+	SEL requestorCallback;
+	
 	IBOutlet UIWebView *loginView;
 	IBOutlet UIActivityIndicatorView *activityIndicator;
 	
 	UIImageView *foursquareOverlay;
+	
+	NSString *foursquareToken;
 }
 
 @property (nonatomic, retain) IBOutlet UIWebView *loginView;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, retain) UIImageView *foursquareOverlay;
+@property (nonatomic, retain) NSString *foursquareToken;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil caller:(NSObject *)caller callback:(SEL)callback;
 - (void)constructOverlay;
 - (void)showOverlay;
 - (void)hideOverlay;
+- (void)toggleOAuthComponent:(BOOL)show;
 
 @end

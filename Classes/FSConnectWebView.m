@@ -11,7 +11,7 @@
 
 @implementation FSConnectWebView
 
-@synthesize loginView, activityIndicator, foursquareOverlay;
+@synthesize loginView, activityIndicator, foursquareOverlay, foursquareToken;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //This application will not work until you enter your Foursquare application's API key and callback URL
@@ -34,8 +34,24 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
  https://foursquare.com/touch/login?continue=/oauth2/authenticate?client_id=CLIENT_ID&response_type=token&redirect_uri=YOUR_REGISTERED_REDIRECT_URI
  
  */
+
+// The designated initializer.  We need a reference to the object that initialized the class and the method to callback on that object
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil caller:(NSObject *)caller callback:(SEL)callback {
+	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if (self) {
+		requestor = caller;
+		if (requestor)
+			[requestor retain];  //Retain the requestor in case it gets popped off while being retrieved (or go 'boom').
+		requestorCallback = callback;		
+	}
+	return self;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	loginView.alpha = 0.0;
 	
 	loginView.delegate = self;
 	loginView.scalesPageToFit = YES;
@@ -89,6 +105,7 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 - (void)showOverlay
 {
 	foursquareOverlay.hidden = NO;
+	[self toggleOAuthComponent:YES];	
 }	
 
 - (void)hideOverlay
@@ -106,9 +123,7 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	[self showOverlay];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView{
-	NSLog(@"Current URL: %@", currentURL.absoluteString);
-	
+- (void)webViewDidFinishLoad:(UIWebView *)webView{	
 	activityIndicator.hidden = YES;
 	[activityIndicator stopAnimating];
 	
@@ -117,15 +132,54 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	NSString *currentURLString = currentURL.absoluteString;
 	NSArray *splitURL = [currentURLString componentsSeparatedByString:@"/#access_token="];
 	NSString *dummyURL = [splitURL objectAtIndex:0];
-	
+
+	NSLog(@"Current URL: %@", currentURL.absoluteString);
 	
 	if ([dummyURL isEqualToString:dummyRedirect]) {
-		[loginView removeFromSuperview];
+		[self toggleOAuthComponent:NO];
 		NSString *token = [splitURL objectAtIndex:1];
-		NSLog(@"access_token = %@", token);
+		loginView.hidden = YES;
+		
+		[requestor performSelector:requestorCallback withObject:token];		
+		
+		return;
 	}
 	
 	[self hideOverlay];
+}
+
+- (void)toggleOAuthComponent:(BOOL)show
+{
+	NSString *animationType;
+	float alphaValue;
+
+	if (show) {
+		animationType = @"addComponent";
+		alphaValue = 1.0;
+	}else {
+		animationType = @"removeComponent";
+		alphaValue = 0.0;		
+	}
+
+	
+	[UIView beginAnimations:animationType context:nil];
+	[UIView setAnimationDelay:0.5];
+	[UIView setAnimationDuration:0.35];	
+	[UIView setAnimationDelegate:self];	
+	[UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
+	
+	loginView.alpha = alphaValue;
+	foursquareOverlay.alpha = alphaValue;
+	
+	[UIView commitAnimations];	
+}
+
+- (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
+{
+	if ([animationID isEqualToString:@"removeComponent"]) {		
+		[loginView removeFromSuperview];
+		[self.view removeFromSuperview];
+	}
 }
 
 
@@ -143,6 +197,7 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
     [super dealloc];
 	[loginView release];
 	[activityIndicator release];
+	[requestor release];
 }
 
 
