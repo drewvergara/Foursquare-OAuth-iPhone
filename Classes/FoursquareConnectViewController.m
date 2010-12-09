@@ -45,6 +45,10 @@
 - (void)storeFoursquareToken:(NSString *)token
 {
 	NSLog(@"access_token = %@", token);
+	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have connected to Foursquare." message:[NSString stringWithFormat:@"access_token = %@", token] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+	[alert show];
+	[alert release];
+	
 }
 
 
