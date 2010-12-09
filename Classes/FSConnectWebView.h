@@ -28,6 +28,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil caller:(NSObject *)caller callback:(SEL)callback;
 - (void)constructOverlay;
+- (void)constructCloseBtn;
 - (void)showOverlay;
 - (void)hideOverlay;
 - (void)toggleOAuthComponent:(BOOL)show;

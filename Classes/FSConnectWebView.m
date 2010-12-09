@@ -65,6 +65,7 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	[loginView loadRequest:req];
 	
 	[self constructOverlay];
+	[self constructCloseBtn];
 }
 
 - (void)viewDidUnload {
@@ -111,6 +112,29 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 - (void)hideOverlay
 {
 	foursquareOverlay.hidden = YES;
+}
+
+
+#pragma mark Construct Cancel/Close Button
+- (void)constructCloseBtn
+{
+	UIImage *closeImage = [UIImage imageNamed:@"fs-close-btn.png"];
+	UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	closeButton.frame = CGRectMake(5, 5, closeImage.size.width * 0.5, closeImage.size.height * 0.5);
+	[closeButton setBackgroundImage:closeImage forState:UIControlStateNormal];
+	[closeButton setContentMode:UIViewContentModeScaleToFill];
+	[closeButton addTarget:self action:@selector(cancelLogin:) forControlEvents:UIControlEventTouchUpInside];
+
+	[self.view insertSubview:closeButton atIndex:3];
+}
+
+- (void)cancelLogin:(id)sender
+{
+	NSLog(@"Canceled Foursquare Login");
+	[self toggleOAuthComponent:NO];
+	loginView.hidden = YES;
+	
+	[requestor performSelector:requestorCallback withObject:nil];
 }
 
 

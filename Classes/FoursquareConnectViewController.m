@@ -11,8 +11,6 @@
 
 @implementation FoursquareConnectViewController
 
-
-
 /*
 // The designated initializer. Override to perform setup that is required before the view is loaded.
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -44,10 +42,18 @@
 //This is the callback called when foursquare has returned the OAuth token.
 - (void)storeFoursquareToken:(NSString *)token
 {
-	NSLog(@"access_token = %@", token);
-	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have connected to Foursquare." message:[NSString stringWithFormat:@"access_token = %@", token] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-	[alert show];
-	[alert release];
+	
+	if (token != nil) {
+		NSLog(@"access_token = %@", token);
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have connected to Foursquare." message:[NSString stringWithFormat:@"access_token = %@", token] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert show];
+		[alert release];		
+	}else {
+		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have not connected to Foursquare." message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+		[alert show];
+		[alert release];		
+	}
+
 	
 }
 
