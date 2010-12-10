@@ -162,8 +162,9 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	if ([dummyURL isEqualToString:dummyRedirect]) {
 		[self toggleOAuthComponent:NO];
 		NSString *token = [splitURL objectAtIndex:1];
+		[self writeTokenToLocalStorage:token];		
 		loginView.hidden = YES;
-		[self writeTokenToLocalStorage];
+
 		[requestor performSelector:requestorCallback withObject:token];		
 		
 		return;
@@ -206,12 +207,14 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	}
 }
 
-- (void)writeTokenToLocalStorage
+//Doing this because I want to.  Still trying to what exactly I want to do with this.
+- (void)writeTokenToLocalStorage:(NSString *)fsToken
 {
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"storage" ofType:@"js"];
 	NSData *jsData = [NSData dataWithContentsOfFile:filePath];
-	NSString *results = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];	
-	NSString *test = [loginView stringByEvaluatingJavaScriptFromString:results];
+	NSString *results = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];
+	NSString *dataWithToken = [NSString stringWithFormat:@"saveTokenOnLocalStorage('%@');%@", fsToken, results];
+	NSString *test = [loginView stringByEvaluatingJavaScriptFromString:dataWithToken];
 	
 	NSLog(@"js return: %@", test);	
 }

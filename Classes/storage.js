@@ -1,8 +1,11 @@
-if('localStorage' in window && window['localStorage'] !== null){
-  var store = window.localStorage;
-  store.setItem('cow','moo');
-	
-	var getter = store.getItem('cow');
-	
-	return getter;
+function saveTokenOnLocalStorage(fParam){
+	if('localStorage' in window && window['localStorage'] !== null){
+	  var store = window.localStorage;
+	  store.setItem('token', fParam);
+		
+		var fsToken = store.getItem('token');
+		
+		return fsToken;
+	}
 }
+

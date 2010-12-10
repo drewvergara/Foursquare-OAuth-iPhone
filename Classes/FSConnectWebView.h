@@ -32,6 +32,6 @@
 - (void)showOverlay;
 - (void)hideOverlay;
 - (void)toggleOAuthComponent:(BOOL)show;
-- (void)writeTokenToLocalStorage;
+- (void)writeTokenToLocalStorage:(NSString *)fsToken;
 
 @end
