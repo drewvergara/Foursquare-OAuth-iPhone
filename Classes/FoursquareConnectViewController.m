@@ -41,8 +41,7 @@
 
 //This is the callback called when foursquare has returned the OAuth token.
 - (void)storeFoursquareToken:(NSString *)token
-{
-	
+{	
 	if (token != nil) {
 		NSLog(@"access_token = %@", token);
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have connected to Foursquare." message:[NSString stringWithFormat:@"access_token = %@", token] delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
@@ -52,9 +51,7 @@
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You have not connected to Foursquare." message:nil delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
 		[alert show];
 		[alert release];		
-	}
-
-	
+	}	
 }
 
 

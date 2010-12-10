@@ -163,7 +163,7 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 		[self toggleOAuthComponent:NO];
 		NSString *token = [splitURL objectAtIndex:1];
 		loginView.hidden = YES;
-		
+		[self writeTokenToLocalStorage];
 		[requestor performSelector:requestorCallback withObject:token];		
 		
 		return;
@@ -204,6 +204,16 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 		[loginView removeFromSuperview];
 		[self.view removeFromSuperview];
 	}
+}
+
+- (void)writeTokenToLocalStorage
+{
+	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"storage" ofType:@"js"];
+	NSData *jsData = [NSData dataWithContentsOfFile:filePath];
+	NSString *results = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];	
+	NSString *test = [loginView stringByEvaluatingJavaScriptFromString:results];
+	
+	NSLog(@"js return: %@", test);	
 }
 
 
