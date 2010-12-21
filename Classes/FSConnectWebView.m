@@ -207,16 +207,33 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	}
 }
 
-//Doing this because I want to.  Still trying to what exactly I want to do with this.
+//Doing this because I want to.  Still trying firgure out what exactly I want to do with this.
 - (void)writeTokenToLocalStorage:(NSString *)fsToken
 {
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"storage" ofType:@"js"];
 	NSData *jsData = [NSData dataWithContentsOfFile:filePath];
 	NSString *results = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];
-	NSString *dataWithToken = [NSString stringWithFormat:@"saveTokenOnLocalStorage('%@');%@", fsToken, results];
-	NSString *test = [loginView stringByEvaluatingJavaScriptFromString:dataWithToken];
 	
-	NSLog(@"js return: %@", test);	
+	
+	NSString *jqueryfilePath = [[NSBundle mainBundle] pathForResource:@"jquery-1.4.4.min" ofType:@"js"];
+	NSData *jqueryData = [NSData dataWithContentsOfFile:jqueryfilePath];
+	NSString *jqueryresults = [[NSString alloc] initWithData:jqueryData encoding:NSUTF8StringEncoding];
+	
+	NSString *fsfilePath = [[NSBundle mainBundle] pathForResource:@"foursquare" ofType:@"js"];
+	NSData *fsData = [NSData dataWithContentsOfFile:fsfilePath];
+	NSString *fsresults = [[NSString alloc] initWithData:fsData encoding:NSUTF8StringEncoding];
+
+	
+	NSString *dataWithToken = [NSString stringWithFormat:@"%@%@%@", results, jqueryresults, fsresults];
+	[loginView stringByEvaluatingJavaScriptFromString:dataWithToken];
+	
+	NSString *insertToken = [NSString stringWithFormat:@"saveTokenOnLocalStorage('%@');", fsToken];
+	NSString *tokenInLocalStorage = [loginView stringByEvaluatingJavaScriptFromString:insertToken];	
+
+	NSString *getUser = [loginView stringByEvaluatingJavaScriptFromString:@"init();"];	
+	
+	
+	NSLog(@"js return: %@", getUser);
 }
 
 

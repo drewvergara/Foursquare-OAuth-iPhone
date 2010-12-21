@@ -16,6 +16,8 @@
 		1E050EC012AF116C006E1AEB /* FSConnectWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E050EBE12AF116C006E1AEB /* FSConnectWebView.xib */; };
 		1E4D112912B1587F002ACEAD /* fs-close-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D112812B1587F002ACEAD /* fs-close-btn.png */; };
 		1E4D117B12B1B23D002ACEAD /* storage.js in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D114312B1A974002ACEAD /* storage.js */; };
+		1EBAE6AF12C08AA700CF157B /* jquery-1.4.4.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 1EBAE6AB12C0883000CF157B /* jquery-1.4.4.min.js */; };
+		1EBAE6B012C08AA700CF157B /* foursquare.js in Resources */ = {isa = PBXBuildFile; fileRef = 1EBAE6AD12C08A2100CF157B /* foursquare.js */; };
 		1ECFAE8712B02DF600E684D1 /* foursquare-overlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ECFAE8612B02DF600E684D1 /* foursquare-overlay.png */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		2899E5220DE3E06400AC0155 /* FoursquareConnectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E5210DE3E06400AC0155 /* FoursquareConnectViewController.xib */; };
@@ -35,6 +37,8 @@
 		1E050EBE12AF116C006E1AEB /* FSConnectWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSConnectWebView.xib; sourceTree = "<group>"; };
 		1E4D112812B1587F002ACEAD /* fs-close-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fs-close-btn.png"; path = "Classes/fs-close-btn.png"; sourceTree = SOURCE_ROOT; };
 		1E4D114312B1A974002ACEAD /* storage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = storage.js; path = Classes/storage.js; sourceTree = SOURCE_ROOT; };
+		1EBAE6AB12C0883000CF157B /* jquery-1.4.4.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-1.4.4.min.js"; sourceTree = "<group>"; };
+		1EBAE6AD12C08A2100CF157B /* foursquare.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = foursquare.js; sourceTree = "<group>"; };
 		1ECFAE8612B02DF600E684D1 /* foursquare-overlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "foursquare-overlay.png"; path = "Classes/foursquare-overlay.png"; sourceTree = SOURCE_ROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* FoursquareConnectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FoursquareConnectViewController.xib; path = ../FoursquareConnectViewController.xib; sourceTree = "<group>"; };
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				1E4D114312B1A974002ACEAD /* storage.js */,
+				1EBAE6AB12C0883000CF157B /* jquery-1.4.4.min.js */,
+				1EBAE6AD12C08A2100CF157B /* foursquare.js */,
 			);
 			name = Javascript;
 			sourceTree = "<group>";
@@ -220,6 +226,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E4D117B12B1B23D002ACEAD /* storage.js in Resources */,
+				1EBAE6AF12C08AA700CF157B /* jquery-1.4.4.min.js in Resources */,
+				1EBAE6B012C08AA700CF157B /* foursquare.js in Resources */,
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				2899E5220DE3E06400AC0155 /* FoursquareConnectViewController.xib in Resources */,
 				1E050EBB12AF10FC006E1AEB /* icon.png in Resources */,
