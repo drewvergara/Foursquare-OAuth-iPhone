@@ -7,11 +7,11 @@
 //
 
 #import "FSConnectWebView.h"
-
+#import "FSUserRequestor.h"
 
 @implementation FSConnectWebView
 
-@synthesize loginView, activityIndicator, foursquareOverlay, foursquareToken;
+@synthesize loginView, activityIndicator, foursquareOverlay, foursquareToken, jsWebview;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 //This application will not work until you enter your Foursquare application's API key and callback URL
@@ -66,6 +66,9 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	
 	[self constructOverlay];
 	[self constructCloseBtn];
+	
+	jsWebview = [[UIWebView alloc] init];
+	jsWebview.delegate = self;	
 }
 
 - (void)viewDidUnload {
@@ -164,12 +167,11 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 		NSString *token = [splitURL objectAtIndex:1];
 		[self writeTokenToLocalStorage:token];		
 		loginView.hidden = YES;
-
 		[requestor performSelector:requestorCallback withObject:token];		
 		
 		return;
 	}
-	
+		
 	[self hideOverlay];
 }
 
@@ -213,27 +215,17 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"storage" ofType:@"js"];
 	NSData *jsData = [NSData dataWithContentsOfFile:filePath];
 	NSString *results = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];
-	
-	
-	NSString *jqueryfilePath = [[NSBundle mainBundle] pathForResource:@"jquery-1.4.4.min" ofType:@"js"];
-	NSData *jqueryData = [NSData dataWithContentsOfFile:jqueryfilePath];
-	NSString *jqueryresults = [[NSString alloc] initWithData:jqueryData encoding:NSUTF8StringEncoding];
-	
-	NSString *fsfilePath = [[NSBundle mainBundle] pathForResource:@"foursquare" ofType:@"js"];
-	NSData *fsData = [NSData dataWithContentsOfFile:fsfilePath];
-	NSString *fsresults = [[NSString alloc] initWithData:fsData encoding:NSUTF8StringEncoding];
-
-	
-	NSString *dataWithToken = [NSString stringWithFormat:@"%@%@%@", results, jqueryresults, fsresults];
+		
+	NSString *dataWithToken = [NSString stringWithFormat:@"%@%@", results];
 	[loginView stringByEvaluatingJavaScriptFromString:dataWithToken];
 	
 	NSString *insertToken = [NSString stringWithFormat:@"saveTokenOnLocalStorage('%@');", fsToken];
 	NSString *tokenInLocalStorage = [loginView stringByEvaluatingJavaScriptFromString:insertToken];	
-
-	NSString *getUser = [loginView stringByEvaluatingJavaScriptFromString:@"init();"];	
 	
+	NSLog(@"js return: %@", tokenInLocalStorage);
 	
-	NSLog(@"js return: %@", getUser);
+	FSUserRequestor *getInfo = [[FSUserRequestor alloc] initForFoursquare:self callback:nil];
+	[getInfo getUserInfo:tokenInLocalStorage];
 }
 
 
