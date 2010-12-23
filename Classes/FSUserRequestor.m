@@ -77,11 +77,27 @@
 		[dicResponse setObject:dicJSON forKey:@"userDictionary"];
 	}
 	
-	NSLog(@"Dictionary: %@", dicResponse);
-	
+	NSLog(@"Dictionary: %@", dicResponse);	
+	[self disectUserInfo:dicResponse];
 	
 	//[requestor performSelector:requestorCallback withObject:results];
 	[requestor release];
+}
+
+- (void)disectUserInfo:(NSDictionary *)dict
+{
+	NSDictionary *info = [dict objectForKey:@"userDictionary"];
+	NSDictionary *response = [info objectForKey:@"response"];
+	NSDictionary *user = [response objectForKey:@"user"];
+	NSDictionary *checkins = [user objectForKey:@"checkins"];
+	NSDictionary *contact = [user objectForKey:@"contact"];
+	NSDictionary *friends = [user objectForKey:@"friends"];
+	NSDictionary *mayorships = [user objectForKey:@"mayorships"];
+	
+	NSLog(@"checkins info: %@", checkins);
+	NSLog(@"contact info: %@", contact);
+	NSLog(@"friends info: %@", friends);
+	NSLog(@"mayorships info: %@", mayorships);
 }
 
 

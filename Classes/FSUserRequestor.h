@@ -19,5 +19,6 @@
 
 - (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback;
 - (void)getUserInfo:(NSString *)token;
+- (void)disectUserInfo:(NSDictionary *)dict;
 
 @end
