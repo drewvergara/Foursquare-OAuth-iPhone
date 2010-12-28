@@ -14,10 +14,22 @@
 	SEL requestorCallback;
 
 	NSMutableData *responseData;
+	
+	NSDictionary *userDictionary;
+	NSDictionary *checkins;
+	NSDictionary *contact;
+	NSDictionary *friends;
+	NSDictionary *mayorships;
+	
 }
 @property (nonatomic, retain) NSMutableData *responseData;
+@property (nonatomic, retain) NSDictionary *userDictionary;
+@property (nonatomic, retain) NSDictionary *checkins;
+@property (nonatomic, retain) NSDictionary *contact;
+@property (nonatomic, retain) NSDictionary *friends;
+@property (nonatomic, retain) NSDictionary *mayorships;
 
-- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback;
+- (id)initFSUserRequestor:(NSObject *)caller callback:(SEL)callback;
 - (void)getUserInfo:(NSString *)token;
 - (void)disectUserInfo:(NSDictionary *)dict;
 

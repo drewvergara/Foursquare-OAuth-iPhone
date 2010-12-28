@@ -11,9 +11,9 @@
 
 @implementation FSUserRequestor
 
-@synthesize responseData;
+@synthesize responseData, userDictionary, checkins, contact, friends, mayorships;
 
-- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback
+- (id)initFSUserRequestor:(NSObject *)caller callback:(SEL)callback
 {
 	if (self = [super init])
 	{
@@ -77,10 +77,12 @@
 		[dicResponse setObject:dicJSON forKey:@"userDictionary"];
 	}
 	
-	NSLog(@"Dictionary: %@", dicResponse);	
+	self.userDictionary = dicResponse;
+	
+	//NSLog(@"Dictionary: %@", dicResponse);	
 	[self disectUserInfo:dicResponse];
 	
-	//[requestor performSelector:requestorCallback withObject:results];
+	[requestor performSelector:requestorCallback withObject:self];
 	[requestor release];
 }
 
@@ -89,15 +91,15 @@
 	NSDictionary *info = [dict objectForKey:@"userDictionary"];
 	NSDictionary *response = [info objectForKey:@"response"];
 	NSDictionary *user = [response objectForKey:@"user"];
-	NSDictionary *checkins = [user objectForKey:@"checkins"];
-	NSDictionary *contact = [user objectForKey:@"contact"];
-	NSDictionary *friends = [user objectForKey:@"friends"];
-	NSDictionary *mayorships = [user objectForKey:@"mayorships"];
+	self.checkins = [user objectForKey:@"checkins"];
+	self.contact = [user objectForKey:@"contact"];
+	self.friends = [user objectForKey:@"friends"];
+	self.mayorships = [user objectForKey:@"mayorships"];
 	
-	NSLog(@"checkins info: %@", checkins);
-	NSLog(@"contact info: %@", contact);
-	NSLog(@"friends info: %@", friends);
-	NSLog(@"mayorships info: %@", mayorships);
+//	NSLog(@"checkins info: %@", checkins);
+//	NSLog(@"contact info: %@", contact);
+//	NSLog(@"friends info: %@", friends);
+//	NSLog(@"mayorships info: %@", mayorships);
 }
 
 

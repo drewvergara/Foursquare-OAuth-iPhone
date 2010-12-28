@@ -7,7 +7,7 @@
 //
 
 #import "FSConnectWebView.h"
-#import "FSUserRequestor.h"
+#import "FSConnect.h"
 
 @implementation FSConnectWebView
 
@@ -224,8 +224,8 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	
 	NSLog(@"js return: %@", tokenInLocalStorage);
 	
-	FSUserRequestor *getInfo = [[FSUserRequestor alloc] initForFoursquare:self callback:nil];
-	[getInfo getUserInfo:tokenInLocalStorage];
+	FSConnect *getInfo = [[FSConnect alloc] initForFoursquare:self callback:nil];
+	[getInfo getUserData:tokenInLocalStorage];
 }
 
 
