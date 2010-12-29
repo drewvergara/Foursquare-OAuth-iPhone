@@ -29,8 +29,8 @@
 @property (nonatomic, retain) NSDictionary *friends;
 @property (nonatomic, retain) NSDictionary *mayorships;
 
-- (id)initFSUserRequestor:(NSObject *)caller callback:(SEL)callback;
-- (void)getUserInfo:(NSString *)token;
+- (id)initFSUserRequestor:(NSObject *)caller token:(NSString *)userToken callback:(SEL)callback;
+- (NSDictionary *)getUserInfo:(NSString *)token;
 - (void)disectUserInfo:(NSDictionary *)dict;
 
 @end

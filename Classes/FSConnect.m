@@ -28,18 +28,21 @@
 
 - (void)getUserData:(NSString *)token
 {
-	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUserRequestor:self callback:@selector(saveUserInfo:)];
-	[fsUser getUserInfo:token];
+	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUserRequestor:self  token:token callback:@selector(saveUserInfo:)];
+	NSLog(@"dictionary: %@", fsUser.userDictionary);
+	//NSDictionary *stuff = [fsUser getUserInfo:token];
+	
+	//NSLog(@"stuff: %@", stuff);
 }
 
 - (void)saveUserInfo:(FSUserRequestor *)userInfo
 {
-	NSLog(@"saved: %@", userInfo);
-	NSLog(@"dictionary: %@", userInfo.userDictionary);
-	NSLog(@"checkins info: %@", userInfo.checkins);
-	NSLog(@"contact info: %@", userInfo.contact);
-	NSLog(@"friends info: %@", userInfo.friends);
-	NSLog(@"mayorships info: %@", userInfo.mayorships);	
+//	NSLog(@"saved: %@", userInfo);
+//	NSLog(@"dictionary: %@", userInfo.userDictionary);
+//	NSLog(@"checkins info: %@", userInfo.checkins);
+//	NSLog(@"contact info: %@", userInfo.contact);
+//	NSLog(@"friends info: %@", userInfo.friends);
+//	NSLog(@"mayorships info: %@", userInfo.mayorships);	
 }
 
 @end
