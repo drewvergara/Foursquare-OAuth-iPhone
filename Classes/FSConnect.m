@@ -8,6 +8,7 @@
 
 #import "FSConnect.h"
 #import "FSUserRequestor.h"
+#import "FSFriendRequestor.h"
 
 @implementation FSConnect
 
@@ -28,21 +29,15 @@
 
 - (void)getUserData:(NSString *)token
 {
-	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUserRequestor:self  token:token callback:@selector(saveUserInfo:)];
-	NSLog(@"dictionary: %@", fsUser.userDictionary);
-	//NSDictionary *stuff = [fsUser getUserInfo:token];
+	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUserRequestor:token];
+	NSLog(@"userDictionary: %@", fsUser.userDictionary);
+	NSLog(@"userFullName: %@", fsUser.fullName);
+	NSLog(@"userID: %@", fsUser.userID);
+	NSLog(@"userPhoto: %@", fsUser.userPhotoURL);
+	NSLog(@"userHome: %@", fsUser.userHomeCity);
 	
-	//NSLog(@"stuff: %@", stuff);
-}
-
-- (void)saveUserInfo:(FSUserRequestor *)userInfo
-{
-//	NSLog(@"saved: %@", userInfo);
-//	NSLog(@"dictionary: %@", userInfo.userDictionary);
-//	NSLog(@"checkins info: %@", userInfo.checkins);
-//	NSLog(@"contact info: %@", userInfo.contact);
-//	NSLog(@"friends info: %@", userInfo.friends);
-//	NSLog(@"mayorships info: %@", userInfo.mayorships);	
+	FSFriendRequestor *fsFriends = [[FSFriendRequestor alloc] initFSFriendRequestor:token];
+	NSLog(@"friendDictionary: %@", fsFriends.friendDictionary);
 }
 
 @end

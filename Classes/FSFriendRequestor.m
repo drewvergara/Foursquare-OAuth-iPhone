@@ -1,30 +1,29 @@
 //
-//  FSUserRequestor.m
+//  FSFriendRequestor.m
 //  FoursquareConnect
 //
-//  Created by Andrew Vergara on 12/22/10.
+//  Created by Andrew Vergara on 12/29/10.
 //  Copyright 2010 72andSunny. All rights reserved.
 //
 
-#import "FSUserRequestor.h"
+#import "FSFriendRequestor.h"
 #import "JSON.h"
 
-@implementation FSUserRequestor
+@implementation FSFriendRequestor
 
-@synthesize responseData, userDictionary, checkins, contact, friends, mayorships, userID, userPhotoURL;
-@synthesize fullName, firstName, lastName, userGender, userHomeCity;
+@synthesize friendDictionary;
 
-- (id)initFSUserRequestor:(NSString *)userToken
+- (id)initFSFriendRequestor:(NSString *)userToken
 {
 	if (self = [super init])
 	{
-		[self getUserInfo:userToken];
+		[self getFriendInfo:userToken];
 	}
 	
     return self;
 }
 
-- (void)getUserInfo:(NSString *)token
+- (void)getFriendInfo:(NSString *)token
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
@@ -32,7 +31,7 @@
 	NSError *error = nil;
 	
 	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/users/self?oauth_token=%@", token]];
+	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/users/self/friends?oauth_token=%@", token]];
 	[request setURL:nsurl];
 	[request setHTTPMethod:@"GET"];
 	[request setValue:@"application/text" forHTTPHeaderField:@"content-type"];
@@ -49,34 +48,22 @@
 		NSLog(@"JSON parsing failed: %@",[error localizedDescription]);
 		[dicResponse setObject:[NSString stringWithFormat:@"JSON parsing failed: %@", [error localizedDescription]] forKey:@"error"];
 	}else{
-		[dicResponse setObject:dicJSON forKey:@"userDictionary"];
+		[dicResponse setObject:dicJSON forKey:@"friendDictionary"];
 	}
 	
 	//NSLog(@"Dictionary: %@", dicResponse);
-	[self disectUserInfo:dicResponse];	
-
+	[self disectFriendInfo:dicResponse];	
+	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
-- (void)disectUserInfo:(NSDictionary *)dict
+- (void)disectFriendInfo:(NSDictionary *)dict
 {
-	NSDictionary *info = [dict objectForKey:@"userDictionary"];
+	NSDictionary *info = [dict objectForKey:@"friendDictionary"];
 	NSDictionary *response = [info objectForKey:@"response"];
-	NSDictionary *user = [response objectForKey:@"user"];
-	self.userDictionary = user;
-	self.userID = [user objectForKey:@"id"];
-	self.userPhotoURL = [user objectForKey:@"photo"];
+	NSDictionary *friends = [response objectForKey:@"friends"];
 	
-	self.firstName = [user objectForKey:@"firstName"];
-	self.lastName = [user objectForKey:@"lastName"];
-	self.fullName = [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
-	self.userGender = [user objectForKey:@"gender"];
-	self.userHomeCity = [user objectForKey:@"homeCity"];
-	
-	self.checkins = [user objectForKey:@"checkins"];
-	self.contact = [user objectForKey:@"contact"];
-	self.friends = [user objectForKey:@"friends"];
-	self.mayorships = [user objectForKey:@"mayorships"];	
+	self.friendDictionary = friends;
 }
 
 @end

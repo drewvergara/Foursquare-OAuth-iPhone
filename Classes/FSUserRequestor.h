@@ -21,6 +21,14 @@
 	NSDictionary *friends;
 	NSDictionary *mayorships;
 	
+	NSString *userID;
+	NSString *userPhotoURL;
+
+	NSString *fullName;
+	NSString *firstName;
+	NSString *lastName;	
+	NSString *userGender;
+	NSString *userHomeCity;		
 }
 @property (nonatomic, retain) NSMutableData *responseData;
 @property (nonatomic, retain) NSDictionary *userDictionary;
@@ -29,8 +37,18 @@
 @property (nonatomic, retain) NSDictionary *friends;
 @property (nonatomic, retain) NSDictionary *mayorships;
 
-- (id)initFSUserRequestor:(NSObject *)caller token:(NSString *)userToken callback:(SEL)callback;
-- (NSDictionary *)getUserInfo:(NSString *)token;
+@property (nonatomic, retain) NSString *userID;
+@property (nonatomic, retain) NSString *userPhotoURL;
+
+@property (nonatomic, retain) NSString *fullName;
+@property (nonatomic, retain) NSString *firstName;
+@property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSString *userGender;
+@property (nonatomic, retain) NSString *userHomeCity;
+
+
+- (id)initFSUserRequestor:(NSString *)userToken;
+- (void)getUserInfo:(NSString *)token;
 - (void)disectUserInfo:(NSDictionary *)dict;
 
 @end
