@@ -11,7 +11,7 @@
 
 @implementation FSFriendRequestor
 
-@synthesize friendDictionary;
+@synthesize friendDictionary, friends,numberOfFriends;
 
 - (id)initFSFriendRequestor:(NSString *)userToken
 {
@@ -51,7 +51,6 @@
 		[dicResponse setObject:dicJSON forKey:@"friendDictionary"];
 	}
 	
-	//NSLog(@"Dictionary: %@", dicResponse);
 	[self disectFriendInfo:dicResponse];	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
@@ -61,9 +60,11 @@
 {
 	NSDictionary *info = [dict objectForKey:@"friendDictionary"];
 	NSDictionary *response = [info objectForKey:@"response"];
-	NSDictionary *friends = [response objectForKey:@"friends"];
+	NSDictionary *friendsDict = [response objectForKey:@"friends"];
 	
-	self.friendDictionary = friends;
+	self.friendDictionary = friendsDict;
+	self.friends = [friendsDict objectForKey:@"items"];
+	self.numberOfFriends = [friendsDict objectForKey:@"count"];
 }
 
 @end

@@ -38,6 +38,8 @@
 	
 	FSFriendRequestor *fsFriends = [[FSFriendRequestor alloc] initFSFriendRequestor:token];
 	NSLog(@"friendDictionary: %@", fsFriends.friendDictionary);
+	NSLog(@"friends: %@", fsFriends.friends);
+	NSLog(@"friendCount: %@", fsFriends.numberOfFriends);
 }
 
 @end

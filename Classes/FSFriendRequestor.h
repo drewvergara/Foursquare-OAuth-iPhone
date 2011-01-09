@@ -12,9 +12,13 @@
 @interface FSFriendRequestor : NSObject {
 
 	NSDictionary *friendDictionary;
+	NSArray *friends;
+	NSNumber *numberOfFriends;
 	
 }
 @property (nonatomic, retain) NSDictionary *friendDictionary;
+@property (nonatomic, retain) NSArray *friends;
+@property (nonatomic, retain) NSNumber *numberOfFriends;
 
 - (id)initFSFriendRequestor:(NSString *)userToken;
 - (void)getFriendInfo:(NSString *)token;
