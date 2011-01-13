@@ -9,6 +9,7 @@
 #import "FSConnect.h"
 #import "FSUserRequestor.h"
 #import "FSFriendRequestor.h"
+#import "FSVenueRequestor.h"
 
 @implementation FSConnect
 
@@ -40,6 +41,11 @@
 	NSLog(@"friendDictionary: %@", fsFriends.friendDictionary);
 	NSLog(@"friends: %@", fsFriends.friends);
 	NSLog(@"friendCount: %@", fsFriends.numberOfFriends);
+	
+	FSVenueRequestor *fsVenue = [[FSVenueRequestor alloc] initFSVenueRequestor:token];
+	NSLog(@"favoriteNearbyVenues: %@", fsVenue.favoriteVenueItems);
+	NSLog(@"nearbyVenues: %@", fsVenue.nearbyVenueItems);
+	
 }
 
 @end
