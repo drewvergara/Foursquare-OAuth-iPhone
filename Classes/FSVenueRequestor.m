@@ -7,7 +7,7 @@
 //
 
 #import "FSVenueRequestor.h"
-#import "JSON.h"
+#import "FSURLRequest.h"
 
 @implementation FSVenueRequestor
 
@@ -26,32 +26,10 @@
 - (void)getNearbyVenueInfo:(NSString *)token latitudeAndLongitude:(NSString *)latLong
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+
+	NSDictionary *venueDict = [FSURLRequest URLString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%@&oauth_token=%@", latLong, token] dictionaryKey:@"venueDictionary" httpMethod:@"GET"];
 	
-	NSHTTPURLResponse *response = nil;
-	NSError *error = nil;
-	
-	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%@&oauth_token=%@", latLong, token]];
-	[request setURL:nsurl];
-	[request setHTTPMethod:@"GET"];
-	[request setValue:@"application/text" forHTTPHeaderField:@"content-type"];
-	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];	
-	
-	NSString *results = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-	NSLog(@"%@", [NSString stringWithFormat:@"Request data: %@", results]);	
-	
-	//Create a dictionary with the data
-	NSMutableDictionary *dicResponse = [[NSMutableDictionary alloc] init];
-	SBJsonParser *json = [SBJsonParser new];
-	NSDictionary *dicJSON = [json objectWithString:results error:&error];
-	if (nil == dicJSON){
-		NSLog(@"JSON parsing failed: %@",[error localizedDescription]);
-		[dicResponse setObject:[NSString stringWithFormat:@"JSON parsing failed: %@", [error localizedDescription]] forKey:@"error"];
-	}else{
-		[dicResponse setObject:dicJSON forKey:@"venueDictionary"];
-	}
-	
-	[self disectVenueInfo:dicResponse];	
+	[self disectVenueInfo:venueDict];	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	

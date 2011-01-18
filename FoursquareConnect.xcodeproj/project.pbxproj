@@ -15,6 +15,7 @@
 		1E050EBF12AF116C006E1AEB /* FSConnectWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E050EBD12AF116C006E1AEB /* FSConnectWebView.m */; };
 		1E050EC012AF116C006E1AEB /* FSConnectWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E050EBE12AF116C006E1AEB /* FSConnectWebView.xib */; };
 		1E14A63D12DE450800B5F277 /* FSVenueRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E14A63C12DE450800B5F277 /* FSVenueRequestor.m */; };
+		1E25B00B12E6385C001B4A53 /* FSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B00A12E6385C001B4A53 /* FSURLRequest.m */; };
 		1E2BFEAD12CA8EFF007445FA /* FSConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BFEAC12CA8EFF007445FA /* FSConnect.m */; };
 		1E4D112912B1587F002ACEAD /* fs-close-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D112812B1587F002ACEAD /* fs-close-btn.png */; };
 		1E4D117B12B1B23D002ACEAD /* storage.js in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D114312B1A974002ACEAD /* storage.js */; };
@@ -44,6 +45,8 @@
 		1E050EBE12AF116C006E1AEB /* FSConnectWebView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FSConnectWebView.xib; sourceTree = "<group>"; };
 		1E14A63B12DE450800B5F277 /* FSVenueRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenueRequestor.h; sourceTree = "<group>"; };
 		1E14A63C12DE450800B5F277 /* FSVenueRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenueRequestor.m; sourceTree = "<group>"; };
+		1E25B00912E6385C001B4A53 /* FSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSURLRequest.h; sourceTree = "<group>"; };
+		1E25B00A12E6385C001B4A53 /* FSURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSURLRequest.m; sourceTree = "<group>"; };
 		1E2BFEAB12CA8EFF007445FA /* FSConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSConnect.h; sourceTree = "<group>"; };
 		1E2BFEAC12CA8EFF007445FA /* FSConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSConnect.m; sourceTree = "<group>"; };
 		1E4D112812B1587F002ACEAD /* fs-close-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fs-close-btn.png"; path = "Classes/fs-close-btn.png"; sourceTree = SOURCE_ROOT; };
@@ -162,6 +165,8 @@
 			children = (
 				1E2BFEAB12CA8EFF007445FA /* FSConnect.h */,
 				1E2BFEAC12CA8EFF007445FA /* FSConnect.m */,
+				1E25B00912E6385C001B4A53 /* FSURLRequest.h */,
+				1E25B00A12E6385C001B4A53 /* FSURLRequest.m */,
 				1EC598BA12C2675F00F2A564 /* FSUserRequestor.h */,
 				1EC598BB12C2675F00F2A564 /* FSUserRequestor.m */,
 				1ED2DB2F12CB294100DF6795 /* FSFriendRequestor.h */,
@@ -312,6 +317,7 @@
 				1E2BFEAD12CA8EFF007445FA /* FSConnect.m in Sources */,
 				1ED2DB3112CB294100DF6795 /* FSFriendRequestor.m in Sources */,
 				1E14A63D12DE450800B5F277 /* FSVenueRequestor.m in Sources */,
+				1E25B00B12E6385C001B4A53 /* FSURLRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
