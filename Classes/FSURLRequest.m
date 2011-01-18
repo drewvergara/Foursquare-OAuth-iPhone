@@ -7,16 +7,19 @@
 //
 
 #import "FSURLRequest.h"
+#import "FSConnect.h"
 #import "JSON.h"
 
 @implementation FSURLRequest
 + (NSDictionary *)URLString:(NSString*)url dictionaryKey:(NSString *)key httpMethod:(NSString *)method
 {
+	NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"fsSecurityToken"];
+	
 	NSHTTPURLResponse *response = nil;
 	NSError *error = nil;
 
 	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-	NSURL *nsurl = [NSURL URLWithString:url];
+	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/%@oauth_token=%@", url, token]];
 	[request setURL:nsurl];
 	[request setHTTPMethod:@"GET"];
 	[request setHTTPMethod:method];

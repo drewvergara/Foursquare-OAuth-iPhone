@@ -10,6 +10,8 @@
 
 
 @interface FSUserRequestor : NSObject {
+	NSString *securityToken;
+	
 	NSObject *requestor;
 	SEL requestorCallback;
 
@@ -30,6 +32,7 @@
 	NSString *userGender;
 	NSString *userHomeCity;		
 }
+@property (nonatomic, retain) NSString *securityToken;
 @property (nonatomic, retain) NSMutableData *responseData;
 @property (nonatomic, retain) NSDictionary *userDictionary;
 @property (nonatomic, retain) NSDictionary *checkins;
@@ -47,8 +50,9 @@
 @property (nonatomic, retain) NSString *userHomeCity;
 
 
-- (id)initFSUserRequestor:(NSString *)userToken;
-- (void)getUserInfo:(NSString *)token;
+- (id)initFSUserRequest;
+- (void)getUserInfo:(NSString *)user;
+- (void)searchUserInfo:(NSString *)search searchType:(NSString *)type;
 - (void)disectUserInfo:(NSDictionary *)dict;
 
 @end

@@ -13,7 +13,7 @@
 
 @synthesize venueDictionary, favoriteVenueItems, nearbyVenueItems;
 
-- (id)initFSVenueRequestor:(NSString *)userToken
+- (id)fsVenueRequest:(NSString *)userToken
 {
 	if (self = [super init])
 	{

@@ -11,28 +11,43 @@
 
 @implementation FSUserRequestor
 
+@synthesize securityToken;
 @synthesize responseData, userDictionary, checkins, contact, friends, mayorships, userID, userPhotoURL;
 @synthesize fullName, firstName, lastName, userGender, userHomeCity;
 
-- (id)initFSUserRequestor:(NSString *)userToken
+- (id)initFSUserRequest
 {
 	if (self = [super init])
 	{
-		[self getUserInfo:userToken];
+		//self.securityToken = userToken;
+		//[self getUserInfo:user securityToken:userToken];
 	}
 	
     return self;
 }
 
-- (void)getUserInfo:(NSString *)token
+- (void)getUserInfo:(NSString *)user
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	NSDictionary *userDict = [FSURLRequest URLString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/users/self?oauth_token=%@", token] dictionaryKey:@"userDictionary" httpMethod:@"GET"];
+	NSDictionary *userDict = [FSURLRequest URLString:[NSString stringWithFormat:@"users/%@?", user] dictionaryKey:@"userDictionary" httpMethod:@"GET"];
 	
 	[self disectUserInfo:userDict];	
 
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+}
+
+- (void)searchUserInfo:(NSString *)search searchType:(NSString *)type
+{
+//	NSLog(@"token: %@", token);
+//	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+//	
+//	NSDictionary *userSearchDict = [FSURLRequest URLString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/users/search?%@=%@&oauth_token=%@", type, search, token] dictionaryKey:@"userSearchDictionary" httpMethod:@"GET"];
+//	
+//	NSLog(@"userSearchDictionary: %@", userSearchDict);
+//	//[self disectUserInfo:userDict];	
+//	
+//	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 
 - (void)disectUserInfo:(NSDictionary *)dict

@@ -224,7 +224,9 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	
 	NSLog(@"js return: %@", tokenInLocalStorage);
 	
-	FSConnect *getInfo = [[FSConnect alloc] initForFoursquare:self callback:nil];
+	[[NSUserDefaults standardUserDefaults] setValue:fsToken forKey:@"fsSecurityToken"];
+	
+	FSConnect *getInfo = [[FSConnect alloc] initForFoursquare:self callback:nil securityToken:fsToken];
 	[getInfo getUserData:tokenInLocalStorage];
 }
 

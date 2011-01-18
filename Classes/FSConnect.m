@@ -13,10 +13,13 @@
 
 @implementation FSConnect
 
-- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback
+@synthesize securityToken;
+
+- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback securityToken:(NSString *)token
 {
 	if (self = [super init])
 	{
+		self.securityToken = token;
 		// Initialization code
 		requestor = caller;
 		if (requestor)
@@ -30,21 +33,23 @@
 
 - (void)getUserData:(NSString *)token
 {
-	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUserRequestor:token];
-	NSLog(@"userDictionary: %@", fsUser.userDictionary);
-	NSLog(@"userFullName: %@", fsUser.fullName);
-	NSLog(@"userID: %@", fsUser.userID);
-	NSLog(@"userPhoto: %@", fsUser.userPhotoURL);
-	NSLog(@"userHome: %@", fsUser.userHomeCity);
+	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUserRequest];
+	[fsUser getUserInfo:@"self"];
+	//[fsUser searchUserInfo:@"drewvergara" searchType:@"twitter" securityToken:token];
+//	NSLog(@"userDictionary: %@", fsUser.userDictionary);
+//	NSLog(@"userFullName: %@", fsUser.fullName);
+//	NSLog(@"userID: %@", fsUser.userID);
+//	NSLog(@"userPhoto: %@", fsUser.userPhotoURL);
+//	NSLog(@"userHome: %@", fsUser.userHomeCity);
 	
-	FSFriendRequestor *fsFriends = [[FSFriendRequestor alloc] initFSFriendRequestor:token];
-	NSLog(@"friendDictionary: %@", fsFriends.friendDictionary);
-	NSLog(@"friends: %@", fsFriends.friends);
-	NSLog(@"friendCount: %@", fsFriends.numberOfFriends);
+//	FSFriendRequestor *fsFriends = [[FSFriendRequestor alloc] initFSFriendRequestor:token];
+//	NSLog(@"friendDictionary: %@", fsFriends.friendDictionary);
+//	NSLog(@"friends: %@", fsFriends.friends);
+//	NSLog(@"friendCount: %@", fsFriends.numberOfFriends);
 	
-	FSVenueRequestor *fsVenue = [[FSVenueRequestor alloc] initFSVenueRequestor:token];
-	NSLog(@"favoriteNearbyVenues: %@", fsVenue.favoriteVenueItems);
-	NSLog(@"nearbyVenues: %@", fsVenue.nearbyVenueItems);
+//	FSVenueRequestor *fsVenue = [[FSVenueRequestor alloc] fsVenueRequestor:token];
+//	NSLog(@"favoriteNearbyVenues: %@", fsVenue.favoriteVenueItems);
+//	NSLog(@"nearbyVenues: %@", fsVenue.nearbyVenueItems);
 	
 }
 
