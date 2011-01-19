@@ -16,6 +16,9 @@
 		1E050EC012AF116C006E1AEB /* FSConnectWebView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E050EBE12AF116C006E1AEB /* FSConnectWebView.xib */; };
 		1E14A63D12DE450800B5F277 /* FSVenueRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E14A63C12DE450800B5F277 /* FSVenueRequestor.m */; };
 		1E25B00B12E6385C001B4A53 /* FSURLRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B00A12E6385C001B4A53 /* FSURLRequest.m */; };
+		1E25B17B12E67C68001B4A53 /* FSUserRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B17A12E67C68001B4A53 /* FSUserRequestorGeneral.m */; };
+		1E25B17E12E67C7E001B4A53 /* FSUserRequestorAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B17D12E67C7E001B4A53 /* FSUserRequestorAspects.m */; };
+		1E25B18112E67C90001B4A53 /* FSUserRequestorActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E25B18012E67C90001B4A53 /* FSUserRequestorActions.m */; };
 		1E2BFEAD12CA8EFF007445FA /* FSConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BFEAC12CA8EFF007445FA /* FSConnect.m */; };
 		1E4D112912B1587F002ACEAD /* fs-close-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D112812B1587F002ACEAD /* fs-close-btn.png */; };
 		1E4D117B12B1B23D002ACEAD /* storage.js in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D114312B1A974002ACEAD /* storage.js */; };
@@ -47,6 +50,12 @@
 		1E14A63C12DE450800B5F277 /* FSVenueRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenueRequestor.m; sourceTree = "<group>"; };
 		1E25B00912E6385C001B4A53 /* FSURLRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSURLRequest.h; sourceTree = "<group>"; };
 		1E25B00A12E6385C001B4A53 /* FSURLRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSURLRequest.m; sourceTree = "<group>"; };
+		1E25B17912E67C68001B4A53 /* FSUserRequestorGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUserRequestorGeneral.h; sourceTree = "<group>"; };
+		1E25B17A12E67C68001B4A53 /* FSUserRequestorGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUserRequestorGeneral.m; sourceTree = "<group>"; };
+		1E25B17C12E67C7E001B4A53 /* FSUserRequestorAspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUserRequestorAspects.h; sourceTree = "<group>"; };
+		1E25B17D12E67C7E001B4A53 /* FSUserRequestorAspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUserRequestorAspects.m; sourceTree = "<group>"; };
+		1E25B17F12E67C90001B4A53 /* FSUserRequestorActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUserRequestorActions.h; sourceTree = "<group>"; };
+		1E25B18012E67C90001B4A53 /* FSUserRequestorActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUserRequestorActions.m; sourceTree = "<group>"; };
 		1E2BFEAB12CA8EFF007445FA /* FSConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSConnect.h; sourceTree = "<group>"; };
 		1E2BFEAC12CA8EFF007445FA /* FSConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSConnect.m; sourceTree = "<group>"; };
 		1E4D112812B1587F002ACEAD /* fs-close-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fs-close-btn.png"; path = "Classes/fs-close-btn.png"; sourceTree = SOURCE_ROOT; };
@@ -152,6 +161,65 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		1E25B16812E67B45001B4A53 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				1EC598BA12C2675F00F2A564 /* FSUserRequestor.h */,
+				1EC598BB12C2675F00F2A564 /* FSUserRequestor.m */,
+				1E25B17912E67C68001B4A53 /* FSUserRequestorGeneral.h */,
+				1E25B17A12E67C68001B4A53 /* FSUserRequestorGeneral.m */,
+				1E25B17C12E67C7E001B4A53 /* FSUserRequestorAspects.h */,
+				1E25B17D12E67C7E001B4A53 /* FSUserRequestorAspects.m */,
+				1E25B17F12E67C90001B4A53 /* FSUserRequestorActions.h */,
+				1E25B18012E67C90001B4A53 /* FSUserRequestorActions.m */,
+			);
+			name = Users;
+			sourceTree = "<group>";
+		};
+		1E25B16912E67B5B001B4A53 /* Venues */ = {
+			isa = PBXGroup;
+			children = (
+				1E14A63B12DE450800B5F277 /* FSVenueRequestor.h */,
+				1E14A63C12DE450800B5F277 /* FSVenueRequestor.m */,
+			);
+			name = Venues;
+			sourceTree = "<group>";
+		};
+		1E25B16A12E67B78001B4A53 /* Checkins */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Checkins;
+			sourceTree = "<group>";
+		};
+		1E25B17012E67B8D001B4A53 /* Tips */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tips;
+			sourceTree = "<group>";
+		};
+		1E25B17112E67B96001B4A53 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Photos;
+			sourceTree = "<group>";
+		};
+		1E25B17212E67BA0001B4A53 /* Specials */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Specials;
+			sourceTree = "<group>";
+		};
+		1E25B17412E67BA8001B4A53 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		1E4D114212B1A95F002ACEAD /* Javascript */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,12 +235,15 @@
 				1E2BFEAC12CA8EFF007445FA /* FSConnect.m */,
 				1E25B00912E6385C001B4A53 /* FSURLRequest.h */,
 				1E25B00A12E6385C001B4A53 /* FSURLRequest.m */,
-				1EC598BA12C2675F00F2A564 /* FSUserRequestor.h */,
-				1EC598BB12C2675F00F2A564 /* FSUserRequestor.m */,
+				1E25B16812E67B45001B4A53 /* Users */,
+				1E25B16912E67B5B001B4A53 /* Venues */,
+				1E25B16A12E67B78001B4A53 /* Checkins */,
+				1E25B17012E67B8D001B4A53 /* Tips */,
+				1E25B17112E67B96001B4A53 /* Photos */,
+				1E25B17412E67BA8001B4A53 /* Settings */,
+				1E25B17212E67BA0001B4A53 /* Specials */,
 				1ED2DB2F12CB294100DF6795 /* FSFriendRequestor.h */,
 				1ED2DB3012CB294100DF6795 /* FSFriendRequestor.m */,
-				1E14A63B12DE450800B5F277 /* FSVenueRequestor.h */,
-				1E14A63C12DE450800B5F277 /* FSVenueRequestor.m */,
 			);
 			name = Requestors;
 			sourceTree = "<group>";
@@ -318,6 +389,9 @@
 				1ED2DB3112CB294100DF6795 /* FSFriendRequestor.m in Sources */,
 				1E14A63D12DE450800B5F277 /* FSVenueRequestor.m in Sources */,
 				1E25B00B12E6385C001B4A53 /* FSURLRequest.m in Sources */,
+				1E25B17B12E67C68001B4A53 /* FSUserRequestorGeneral.m in Sources */,
+				1E25B17E12E67C7E001B4A53 /* FSUserRequestorAspects.m in Sources */,
+				1E25B18112E67C90001B4A53 /* FSUserRequestorActions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

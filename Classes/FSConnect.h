@@ -12,12 +12,9 @@
 @interface FSConnect : NSObject {
 	NSObject *requestor;
 	SEL requestorCallback;
-	
-	NSString *securityToken;
 }
-@property (nonatomic, retain) NSString *securityToken;
 
-- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback securityToken:(NSString *)token;
+- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback;
 - (void)getUserData:(NSString *)token;
 
 @end

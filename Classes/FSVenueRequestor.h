@@ -18,7 +18,7 @@
 @property (nonatomic, retain) NSArray *favoriteVenueItems;
 @property (nonatomic, retain) NSArray *nearbyVenueItems;
 
-- (id)fsVenueRequest:(NSString *)userToken;
-- (void)getNearbyVenueInfo:(NSString *)token latitudeAndLongitude:(NSString *)latLong;
+- (id)initFSVenueRequest;
+- (NSDictionary *)getNearbyVenueInfo:(NSString *)latLong;
 - (void)disectVenueInfo:(NSDictionary *)dict;
 @end

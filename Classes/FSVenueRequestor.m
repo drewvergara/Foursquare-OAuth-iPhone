@@ -13,28 +13,36 @@
 
 @synthesize venueDictionary, favoriteVenueItems, nearbyVenueItems;
 
-- (id)fsVenueRequest:(NSString *)userToken
+#pragma mark -
+#pragma mark Create instance of FSVenueRequestor
+- (id)initFSVenueRequest
 {
 	if (self = [super init])
 	{
-		[self getNearbyVenueInfo:userToken latitudeAndLongitude:@"33.980478,-118.397191"];
+		//[self getNearbyVenueInfo:@"33.980478,-118.397191"];
 	}
 	
     return self;
 }
 
-- (void)getNearbyVenueInfo:(NSString *)token latitudeAndLongitude:(NSString *)latLong
+#pragma mark -
+#pragma mark Venue Information
+- (NSDictionary *)getNearbyVenueInfo:(NSString *)latLong
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 
-	NSDictionary *venueDict = [FSURLRequest URLString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?ll=%@&oauth_token=%@", latLong, token] dictionaryKey:@"venueDictionary" httpMethod:@"GET"];
+	NSDictionary *venueDict = [FSURLRequest URLString:[NSString stringWithFormat:@"venues/search?ll=%@&", latLong] dictionaryKey:@"venueDictionary" httpMethod:@"GET"];
 	
 	[self disectVenueInfo:venueDict];	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
+	return venueDict;
 }
 
+
+#pragma mark -
+#pragma mark Venue Information Disection
 - (void)disectVenueInfo:(NSDictionary *)dict
 {
 	NSDictionary *info = [dict objectForKey:@"venueDictionary"];
@@ -51,9 +59,7 @@
 		
 		if ([venueType isEqualToString:@"nearby"]) {
 			self.nearbyVenueItems = [groupItems objectForKey:@"items"];
-		}
-		
-		
+		}				
 	}
 }
 

@@ -13,13 +13,11 @@
 
 @implementation FSConnect
 
-@synthesize securityToken;
 
-- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback securityToken:(NSString *)token
+- (id)initForFoursquare:(NSObject *)caller callback:(SEL)callback
 {
 	if (self = [super init])
 	{
-		self.securityToken = token;
 		// Initialization code
 		requestor = caller;
 		if (requestor)
@@ -33,9 +31,12 @@
 
 - (void)getUserData:(NSString *)token
 {
-	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUserRequest];
-	[fsUser getUserInfo:@"self"];
-	//[fsUser searchUserInfo:@"drewvergara" searchType:@"twitter" securityToken:token];
+	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUser];
+	NSDictionary *userInfo  = [fsUser getUserInfo:@"self"];
+	NSLog(@"userInfo: %@", userInfo);
+
+	NSDictionary *generalData = [fsUser generalUserAPIRequest:@"search" requestData:nil];
+	
 //	NSLog(@"userDictionary: %@", fsUser.userDictionary);
 //	NSLog(@"userFullName: %@", fsUser.fullName);
 //	NSLog(@"userID: %@", fsUser.userID);
@@ -47,7 +48,11 @@
 //	NSLog(@"friends: %@", fsFriends.friends);
 //	NSLog(@"friendCount: %@", fsFriends.numberOfFriends);
 	
-//	FSVenueRequestor *fsVenue = [[FSVenueRequestor alloc] fsVenueRequestor:token];
+//	FSVenueRequestor *fsVenue = [[FSVenueRequestor alloc] initFSVenueRequest];
+//	NSDictionary *venueInfo = [fsVenue getNearbyVenueInfo:@"33.980478,-118.397191"];
+//
+//	NSLog(@"venueInfo: %@", venueInfo);
+//	
 //	NSLog(@"favoriteNearbyVenues: %@", fsVenue.favoriteVenueItems);
 //	NSLog(@"nearbyVenues: %@", fsVenue.nearbyVenueItems);
 	

@@ -11,6 +11,9 @@
 #import "JSON.h"
 
 @implementation FSURLRequest
+
+#pragma mark -
+#pragma mark URL Connection to Foursquare
 + (NSDictionary *)URLString:(NSString*)url dictionaryKey:(NSString *)key httpMethod:(NSString *)method
 {
 	NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"fsSecurityToken"];

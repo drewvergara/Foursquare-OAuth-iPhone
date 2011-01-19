@@ -209,25 +209,13 @@ static NSString *dummyRedirect = @"http://www.imaginepixel.com";
 	}
 }
 
-//Doing this because I want to.  Still trying firgure out what exactly I want to do with this.
+//Currently writing the token to the apps plist.  If you want to store it else where you can do it here.
 - (void)writeTokenToLocalStorage:(NSString *)fsToken
 {
-	NSString *filePath = [[NSBundle mainBundle] pathForResource:@"storage" ofType:@"js"];
-	NSData *jsData = [NSData dataWithContentsOfFile:filePath];
-	NSString *results = [[NSString alloc] initWithData:jsData encoding:NSUTF8StringEncoding];
-		
-	NSString *dataWithToken = [NSString stringWithFormat:@"%@%@", results];
-	[loginView stringByEvaluatingJavaScriptFromString:dataWithToken];
-	
-	NSString *insertToken = [NSString stringWithFormat:@"saveTokenOnLocalStorage('%@');", fsToken];
-	NSString *tokenInLocalStorage = [loginView stringByEvaluatingJavaScriptFromString:insertToken];	
-	
-	NSLog(@"js return: %@", tokenInLocalStorage);
-	
 	[[NSUserDefaults standardUserDefaults] setValue:fsToken forKey:@"fsSecurityToken"];
 	
-	FSConnect *getInfo = [[FSConnect alloc] initForFoursquare:self callback:nil securityToken:fsToken];
-	[getInfo getUserData:tokenInLocalStorage];
+	FSConnect *getInfo = [[FSConnect alloc] initForFoursquare:self callback:nil];
+	[getInfo getUserData:fsToken];
 }
 
 

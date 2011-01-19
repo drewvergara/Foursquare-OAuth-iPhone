@@ -15,7 +15,10 @@
 @synthesize responseData, userDictionary, checkins, contact, friends, mayorships, userID, userPhotoURL;
 @synthesize fullName, firstName, lastName, userGender, userHomeCity;
 
-- (id)initFSUserRequest
+
+#pragma mark -
+#pragma mark Create instance of FSUserRequestor
+- (id)initFSUser
 {
 	if (self = [super init])
 	{
@@ -26,30 +29,48 @@
     return self;
 }
 
-- (void)getUserInfo:(NSString *)user
+#pragma mark -
+#pragma mark User Information
+//Retrieve a user's information
+- (NSDictionary *)getUserInfo:(NSString *)user
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
 	NSDictionary *userDict = [FSURLRequest URLString:[NSString stringWithFormat:@"users/%@?", user] dictionaryKey:@"userDictionary" httpMethod:@"GET"];
 	
-	[self disectUserInfo:userDict];	
+	if ([user isEqualToString:@"self"]) {
+		[self disectUserInfo:userDict];	
+	}
 
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return userDict;
 }
 
-- (void)searchUserInfo:(NSString *)search searchType:(NSString *)type
+#pragma mark -
+#pragma mark User API Request
+- (NSDictionary *)generalUserAPIRequest:(NSString *)type requestData:(NSDictionary *)data
 {
-//	NSLog(@"token: %@", token);
-//	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-//	
-//	NSDictionary *userSearchDict = [FSURLRequest URLString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/users/search?%@=%@&oauth_token=%@", type, search, token] dictionaryKey:@"userSearchDictionary" httpMethod:@"GET"];
-//	
-//	NSLog(@"userSearchDictionary: %@", userSearchDict);
-//	//[self disectUserInfo:userDict];	
-//	
-//	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	if ([type isEqualToString:@"search"]) {
+		NSLog(@"user search");
+		
+		NSDictionary *userSearchDict = [FSURLRequest URLString:[NSString stringWithFormat:@"users/search?%@=%@&", type, search] dictionaryKey:@"userSearchDictionary" httpMethod:@"GET"];
+	}
+
+	if ([type isEqualToString:@"requests"]) {
+		NSLog(@"user requests");
+	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return nil;
 }
 
+#pragma mark -
+#pragma mark User Info Disection
+//Disection of userDictionary.  Only if the user is self.
 - (void)disectUserInfo:(NSDictionary *)dict
 {
 	NSDictionary *info = [dict objectForKey:@"userDictionary"];

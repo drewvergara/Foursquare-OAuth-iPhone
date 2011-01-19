@@ -50,9 +50,9 @@
 @property (nonatomic, retain) NSString *userHomeCity;
 
 
-- (id)initFSUserRequest;
-- (void)getUserInfo:(NSString *)user;
-- (void)searchUserInfo:(NSString *)search searchType:(NSString *)type;
+- (id)initFSUser;
+- (NSDictionary *)getUserInfo:(NSString *)user;
+- (NSDictionary *)generalUserAPIRequest:(NSString *)type requestData:(NSDictionary *)data;
 - (void)disectUserInfo:(NSDictionary *)dict;
 
 @end
