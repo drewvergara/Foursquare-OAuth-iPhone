@@ -8,6 +8,7 @@
 
 #import "FSUserRequestor.h"
 #import "FSURLRequest.h"
+#import "FSUserRequestorGeneral.h"
 
 @implementation FSUserRequestor
 
@@ -49,23 +50,43 @@
 
 #pragma mark -
 #pragma mark User API Request
-- (NSDictionary *)generalUserAPIRequest:(NSString *)type requestData:(NSDictionary *)data
+- (NSDictionary *)generalUserAPIRequest:(NSString *)type
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	if ([type isEqualToString:@"search"]) {
-		NSLog(@"user search");
-		
-		NSDictionary *userSearchDict = [FSURLRequest URLString:[NSString stringWithFormat:@"users/search?%@=%@&", type, search] dictionaryKey:@"userSearchDictionary" httpMethod:@"GET"];
+	FSUserRequestorGeneral *generalRequestor = [[FSUserRequestorGeneral alloc] initFSRequestorGeneral];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"requests"]) {
+		requestDict = [generalRequestor requestsUserAPIRequest];
+	}else {
+		requestDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Bad Request", @"error", nil];
+	}
+
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+- (NSDictionary *)generalUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSUserRequestorGeneral *generalRequestor = [[FSUserRequestorGeneral alloc] initFSRequestorGeneral];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"search"]) {		
+		requestDict = [generalRequestor searchUserAPIRequest:data];
 	}
 
 	if ([type isEqualToString:@"requests"]) {
-		NSLog(@"user requests");
+		requestDict = [generalRequestor requestsUserAPIRequest];
 	}
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
-	return nil;
+	return requestDict;
 }
 
 #pragma mark -

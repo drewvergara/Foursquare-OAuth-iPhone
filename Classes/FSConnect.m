@@ -35,7 +35,9 @@
 	NSDictionary *userInfo  = [fsUser getUserInfo:@"self"];
 	NSLog(@"userInfo: %@", userInfo);
 
-	NSDictionary *generalData = [fsUser generalUserAPIRequest:@"search" requestData:nil];
+	NSDictionary *generalData = [fsUser generalUserAPIRequest:@"search" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"twitter", @"type", @"drewvergara", @"query", nil]];
+	NSLog(@"generalData: %@", generalData);
+	
 	
 //	NSLog(@"userDictionary: %@", fsUser.userDictionary);
 //	NSLog(@"userFullName: %@", fsUser.fullName);

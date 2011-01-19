@@ -13,4 +13,7 @@
 
 }
 
+- (id)initFSRequestorGeneral;
+- (NSDictionary *)searchUserAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)requestsUserAPIRequest;
 @end
