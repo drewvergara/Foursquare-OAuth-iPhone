@@ -13,4 +13,10 @@
 
 }
 
+- (id)initFSRequestorActions;
+- (NSDictionary *)requestUserAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)unfriendUserAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)approveUserAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)denyUserAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)setpingsUserAPIRequest:(NSDictionary *)queryData;
 @end

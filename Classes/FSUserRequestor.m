@@ -9,6 +9,8 @@
 #import "FSUserRequestor.h"
 #import "FSURLRequest.h"
 #import "FSUserRequestorGeneral.h"
+#import "FSUserRequestorAspects.h"
+#import "FSUserRequestorActions.h"
 
 @implementation FSUserRequestor
 
@@ -49,7 +51,7 @@
 }
 
 #pragma mark -
-#pragma mark User API Request
+#pragma mark User General API Request
 - (NSDictionary *)generalUserAPIRequest:(NSString *)type
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
@@ -80,6 +82,110 @@
 		requestDict = [generalRequestor searchUserAPIRequest:data];
 	}
 
+	if ([type isEqualToString:@"requests"]) {
+		requestDict = [generalRequestor requestsUserAPIRequest];
+	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+#pragma mark -
+#pragma mark User Aspects API Request
+- (NSDictionary *)aspectsUserAPIRequest:(NSString *)type withUserID:(NSString *)usersID
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSUserRequestorAspects *aspectsRequestor = [[FSUserRequestorAspects alloc] initFSRequestorAspects];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"badges"]) {		
+		requestDict = [aspectsRequestor badgesUserAPIRequest:usersID];
+	}
+	
+	if ([type isEqualToString:@"friends"]) {
+		requestDict = [aspectsRequestor friendsUserAPIRequest:usersID];
+	}
+		
+	if ([type isEqualToString:@"venuehistory"]) {
+		requestDict = [aspectsRequestor venuehistoryUserAPIRequest:usersID];
+	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+- (NSDictionary *)aspectsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSUserRequestorAspects *aspectsRequestor = [[FSUserRequestorAspects alloc] initFSRequestorAspects];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"badges"]) {		
+		//requestDict = [aspectsRequestor badgesUserAPIRequest:@"self"];
+	}
+	
+	if ([type isEqualToString:@"checkins"]) {
+
+	}
+	
+	if ([type isEqualToString:@"friends"]) {
+
+	}
+
+	if ([type isEqualToString:@"tips"]) {
+
+	}
+
+	if ([type isEqualToString:@"todos"]) {
+
+	}
+
+	if ([type isEqualToString:@"venuehistory"]) {
+
+	}
+		
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+
+#pragma mark -
+#pragma mark User Acations API Request
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSUserRequestorGeneral *generalRequestor = [[FSUserRequestorGeneral alloc] initFSRequestorGeneral];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"requests"]) {
+		requestDict = [generalRequestor requestsUserAPIRequest];
+	}else {
+		requestDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Bad Request", @"error", nil];
+	}
+	
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSUserRequestorGeneral *generalRequestor = [[FSUserRequestorGeneral alloc] initFSRequestorGeneral];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"search"]) {		
+		requestDict = [generalRequestor searchUserAPIRequest:data];
+	}
+	
 	if ([type isEqualToString:@"requests"]) {
 		requestDict = [generalRequestor requestsUserAPIRequest];
 	}

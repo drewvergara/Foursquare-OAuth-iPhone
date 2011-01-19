@@ -33,10 +33,13 @@
 {
 	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUser];
 	NSDictionary *userInfo  = [fsUser getUserInfo:@"self"];
-	NSLog(@"userInfo: %@", userInfo);
+//	NSLog(@"userInfo: %@", userInfo);
 
-	NSDictionary *generalData = [fsUser generalUserAPIRequest:@"search" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"twitter", @"type", @"drewvergara", @"query", nil]];
-	NSLog(@"generalData: %@", generalData);
+//	NSDictionary *generalData = [fsUser generalUserAPIRequest:@"search" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"twitter", @"type", @"drewvergara", @"query", nil]];
+//	NSLog(@"generalData: %@", generalData);
+	
+	NSDictionary *aspectsData = [fsUser aspectsUserAPIRequest:@"badges" withUserID:@"self"];
+	NSLog(@"aspectsData: %@", aspectsData);
 	
 	
 //	NSLog(@"userDictionary: %@", fsUser.userDictionary);

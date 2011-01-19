@@ -11,4 +11,34 @@
 
 @implementation FSUserRequestorActions
 
+- (id)initFSRequestorActions
+{
+    return self;
+}
+
+- (NSDictionary *)requestUserAPIRequest:(NSDictionary *)queryData
+{
+	return nil;
+}
+
+- (NSDictionary *)unfriendUserAPIRequest:(NSDictionary *)queryData
+{
+	return nil;
+}
+
+- (NSDictionary *)approveUserAPIRequest:(NSDictionary *)queryData
+{
+	return nil;
+}
+
+- (NSDictionary *)denyUserAPIRequest:(NSDictionary *)queryData
+{
+	return nil;
+}
+
+- (NSDictionary *)setpingsUserAPIRequest:(NSDictionary *)queryData
+{
+	return nil;
+}
+
 @end

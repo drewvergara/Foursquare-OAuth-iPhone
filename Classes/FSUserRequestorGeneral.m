@@ -33,7 +33,7 @@
 #pragma mark User Requests API Request
 - (NSDictionary *)requestsUserAPIRequest
 {
-	NSDictionary *userRequestsDict = [FSURLRequest URLString:@"users/requests?" dictionaryKey:@"userSearchDictionary" httpMethod:@"GET"];
+	NSDictionary *userRequestsDict = [FSURLRequest URLString:@"users/requests?" dictionaryKey:@"userRequestsDictionary" httpMethod:@"GET"];
 	
 	return userRequestsDict;
 }

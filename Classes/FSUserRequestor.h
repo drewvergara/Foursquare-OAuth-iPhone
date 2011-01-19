@@ -51,9 +51,17 @@
 
 
 - (id)initFSUser;
+
 - (NSDictionary *)getUserInfo:(NSString *)user;
 - (NSDictionary *)generalUserAPIRequest:(NSString *)type;
 - (NSDictionary *)generalUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
+
+- (NSDictionary *)aspectsUserAPIRequest:(NSString *)type withUserID:(NSString *)usersID;
+- (NSDictionary *)aspectsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
+
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type;
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
+
 - (void)disectUserInfo:(NSDictionary *)dict;
 
 @end
