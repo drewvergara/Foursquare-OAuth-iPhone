@@ -144,15 +144,15 @@
 
 #pragma mark -
 #pragma mark User Acations API Request
-- (NSDictionary *)actionsUserAPIRequest:(NSString *)type
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSString *)data
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	FSUserRequestorGeneral *generalRequestor = [[FSUserRequestorGeneral alloc] initFSRequestorGeneral];
+	FSUserRequestorActions *actionsRequestor = [[FSUserRequestorActions alloc] initFSRequestorActions];
 	NSDictionary *requestDict;
 	
-	if ([type isEqualToString:@"requests"]) {
-		requestDict = [generalRequestor requestsUserAPIRequest];
+	if ([type isEqualToString:@"setpings"]) {
+		requestDict = [actionsRequestor setpingsUserAPIRequest:data];
 	}else {
 		requestDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Bad Request", @"error", nil];
 	}
@@ -163,19 +163,27 @@
 	return requestDict;
 }
 
-- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withUserID:(NSString *)usersID
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	FSUserRequestorGeneral *generalRequestor = [[FSUserRequestorGeneral alloc] initFSRequestorGeneral];
+	FSUserRequestorActions *actionsRequestor = [[FSUserRequestorActions alloc] initFSRequestorActions];
 	NSDictionary *requestDict;
 	
-	if ([type isEqualToString:@"search"]) {		
-		requestDict = [generalRequestor searchUserAPIRequest:data];
+	if ([type isEqualToString:@"request"]) {
+		requestDict = [actionsRequestor requestUserAPIRequest:usersID];
 	}
 	
-	if ([type isEqualToString:@"requests"]) {
-		requestDict = [generalRequestor requestsUserAPIRequest];
+	if ([type isEqualToString:@"unfriend"]) {
+		requestDict = [actionsRequestor unfriendUserAPIRequest:usersID];
+	}
+	
+	if ([type isEqualToString:@"approve"]) {
+		requestDict = [actionsRequestor approveUserAPIRequest:usersID];
+	}
+	
+	if ([type isEqualToString:@"deny"]) {
+		requestDict = [actionsRequestor denyUserAPIRequest:usersID];
 	}
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

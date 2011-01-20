@@ -14,9 +14,9 @@
 }
 
 - (id)initFSRequestorActions;
-- (NSDictionary *)requestUserAPIRequest:(NSDictionary *)queryData;
-- (NSDictionary *)unfriendUserAPIRequest:(NSDictionary *)queryData;
-- (NSDictionary *)approveUserAPIRequest:(NSDictionary *)queryData;
-- (NSDictionary *)denyUserAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)requestUserAPIRequest:(NSString *)userID;
+- (NSDictionary *)unfriendUserAPIRequest:(NSString *)userID;
+- (NSDictionary *)approveUserAPIRequest:(NSString *)userID;
+- (NSDictionary *)denyUserAPIRequest:(NSString *)userID;
 - (NSDictionary *)setpingsUserAPIRequest:(NSDictionary *)queryData;
 @end
