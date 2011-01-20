@@ -12,6 +12,13 @@
 
 @implementation FSURLRequest
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//This is the Foursquare APIv2 URL
+static NSString *baseURL = @"https://api.foursquare.com/v2/";
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 #pragma mark -
 #pragma mark URL Connection to Foursquare
 + (NSDictionary *)URLString:(NSString*)url dictionaryKey:(NSString *)key httpMethod:(NSString *)method
@@ -22,7 +29,7 @@
 	NSError *error = nil;
 
 	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/%@oauth_token=%@", url, token]];
+	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@oauth_token=%@", baseURL, url, token]];
 	[request setURL:nsurl];
 	[request setHTTPMethod:@"GET"];
 	[request setHTTPMethod:method];
@@ -57,7 +64,7 @@
 	NSError *error = nil;
 	
 	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
-	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/%@oauth_token=%@", url, token]];
+	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@oauth_token=%@", baseURL, url, token]];
 	[request setURL:nsurl];
 
 	NSData *postData = [postBodyData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]; 
