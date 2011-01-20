@@ -47,4 +47,43 @@
 	
 	return dicResponse;
 }
+
++ (NSDictionary *)URLString:(NSString*)url dictionaryKey:(NSString *)key httpMethod:(NSString *)method withPOSTData:(NSString *)postBodyData
+{
+	NSString *token = [[NSUserDefaults standardUserDefaults] valueForKey:@"fsSecurityToken"];
+	
+	NSHTTPURLResponse *response = nil;
+	NSError *error = nil;
+	
+	NSMutableURLRequest *request = [[[NSMutableURLRequest alloc] init] autorelease];
+	NSURL *nsurl = [NSURL URLWithString:[NSString stringWithFormat:@"https://api.foursquare.com/v2/%@oauth_token=%@", url, token]];
+	[request setURL:nsurl];
+
+	NSData *postData = [postBodyData dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES]; 
+	
+	NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]]; 
+	[request setHTTPMethod:@"POST"]; 
+	[request setValue:postLength forHTTPHeaderField:@"Content-Length"]; 
+	[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"]; 
+	[request setHTTPBody:postData]; 	
+	
+	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];	
+	
+	NSString *results = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+	NSLog(@"%@", [NSString stringWithFormat:@"Request data: %@", results]);	
+	
+	//Create a dictionary with the data
+	NSMutableDictionary *dicResponse = [[NSMutableDictionary alloc] init];
+	
+	SBJsonParser *json = [SBJsonParser new];
+	NSDictionary *dicJSON = [json objectWithString:results error:&error];
+	if (nil == dicJSON){
+		NSLog(@"JSON parsing failed: %@",[error localizedDescription]);
+		[dicResponse setObject:[NSString stringWithFormat:@"JSON parsing failed: %@", [error localizedDescription]] forKey:@"error"];
+	}else{
+		[dicResponse setObject:dicJSON forKey:key];
+	}
+	
+	return dicResponse;
+}
 @end

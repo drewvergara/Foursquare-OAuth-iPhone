@@ -13,4 +13,5 @@
 
 }
 + (NSDictionary *)URLString:(NSString*)url dictionaryKey:(NSString *)key httpMethod:(NSString *)method;
++ (NSDictionary *)URLString:(NSString*)url dictionaryKey:(NSString *)key httpMethod:(NSString *)method withPOSTData:(NSString *)data;
 @end

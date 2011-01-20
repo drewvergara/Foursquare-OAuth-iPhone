@@ -97,7 +97,7 @@
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"ll=%@&", (NSString *)[queryData objectForKey:@"limit"]]];
 	}	
 	
-	NSDictionary *userTodosDict = [FSURLRequest URLString:[NSString stringWithFormat:@"users/%@/todos%@", userID, query] dictionaryKey:@"userTipsDictionary" httpMethod:@"GET"];
+	NSDictionary *userTodosDict = [FSURLRequest URLString:[NSString stringWithFormat:@"users/%@/todos%@", userID, query] dictionaryKey:@"userTodosDictionary" httpMethod:@"GET"];
 	
 	return userTodosDict;
 }

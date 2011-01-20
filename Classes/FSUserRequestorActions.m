@@ -7,7 +7,7 @@
 //
 
 #import "FSUserRequestorActions.h"
-
+#import "FSURLRequest.h"
 
 @implementation FSUserRequestorActions
 
@@ -18,7 +18,10 @@
 
 - (NSDictionary *)requestUserAPIRequest:(NSDictionary *)queryData
 {
-	return nil;
+	NSString *userID = [queryData objectForKey:@"userID"];
+	NSDictionary *userRequestDict = [FSURLRequest URLString:[NSString stringWithFormat:@"users/%@/request?", userID] dictionaryKey:@"userRequestDictionary" httpMethod:@"POST" withPOSTData:[NSString stringWithFormat:@"USER_ID=%@", userID]];
+	
+	return userRequestDict;
 }
 
 - (NSDictionary *)unfriendUserAPIRequest:(NSDictionary *)queryData
