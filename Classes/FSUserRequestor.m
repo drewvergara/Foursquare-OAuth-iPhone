@@ -124,28 +124,16 @@
 	FSUserRequestorAspects *aspectsRequestor = [[FSUserRequestorAspects alloc] initFSRequestorAspects];
 	NSDictionary *requestDict;
 	
-	if ([type isEqualToString:@"badges"]) {		
-		//requestDict = [aspectsRequestor badgesUserAPIRequest:@"self"];
-	}
-	
 	if ([type isEqualToString:@"checkins"]) {
 		requestDict = [aspectsRequestor checkinsUserAPIRequest:data];
 	}
-	
-	if ([type isEqualToString:@"friends"]) {
-
-	}
 
 	if ([type isEqualToString:@"tips"]) {
-
+		requestDict = [aspectsRequestor tipsUserAPIRequest:data];
 	}
 
 	if ([type isEqualToString:@"todos"]) {
-
-	}
-
-	if ([type isEqualToString:@"venuehistory"]) {
-
+		requestDict = [aspectsRequestor todosUserAPIRequest:data];
 	}
 		
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

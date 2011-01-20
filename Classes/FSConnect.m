@@ -36,17 +36,12 @@
 
 //	NSDictionary *generalData = [fsUser generalUserAPIRequest:@"search" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"twitter", @"type", @"drewvergara", @"query", nil]];
 //	NSLog(@"generalData: %@", generalData);
+
+	NSDictionary *aspectsData = [fsUser aspectsUserAPIRequest:@"tips" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"self", @"userID", @"", @"sort", @"", @"ll", nil]];
+	NSLog(@"aspectsData: %@", aspectsData);	
 	
-	NSDictionary *aspectsData = [fsUser aspectsUserAPIRequest:@"checkins" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"self", @"userID", @"10", @"limit", @"", @"offset", @"", @"afterTimestamp", @"", @"beforeTimestamp", nil]];
-	NSLog(@"aspectsData: %@", aspectsData);
-	
-//	FSVenueRequestor *fsVenue = [[FSVenueRequestor alloc] initFSVenueRequest];
-//	NSDictionary *venueInfo = [fsVenue getNearbyVenueInfo:@"33.980478,-118.397191"];
-//
-//	NSLog(@"venueInfo: %@", venueInfo);
-//	
-//	NSLog(@"favoriteNearbyVenues: %@", fsVenue.favoriteVenueItems);
-//	NSLog(@"nearbyVenues: %@", fsVenue.nearbyVenueItems);
+//	NSDictionary *aspectsData = [fsUser aspectsUserAPIRequest:@"checkins" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"self", @"userID", @"10", @"limit", @"", @"offset", @"", @"afterTimestamp", @"", @"beforeTimestamp", nil]];
+//	NSLog(@"aspectsData: %@", aspectsData);
 	
 }
 
