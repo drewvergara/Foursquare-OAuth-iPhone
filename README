@@ -18,6 +18,8 @@ drewvergara@gmail.com
 
 
 -------------------------------------------------------
+01-19-10: Restructured how the library is being laid out to mimic the structure of Foursquare's api.
+
 12-22-10: Started to do some prototyping in retrieving foursquare data.  I am also using SBJSON to parse through the JSON and to write it to an NSDictionary object.
 
 12-08-10: Since this is currently for prototypical purposes most of the actions are written in the viewcontroller.  Eventually, I will abstract these out.
