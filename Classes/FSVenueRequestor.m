@@ -27,24 +27,39 @@
 
 #pragma mark -
 #pragma mark Venue Information
-- (NSDictionary *)getNearbyVenueInfo:(NSString *)latLong
+- (NSDictionary *)getVenueInfo:(NSString *)venueID
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-
-	NSDictionary *venueDict = [FSURLRequest URLString:[NSString stringWithFormat:@"venues/search?ll=%@&", latLong] dictionaryKey:@"venueDictionary" httpMethod:@"GET"];
 	
-	[self disectVenueInfo:venueDict];	
+	NSDictionary *venueDict = [FSURLRequest URLString:[NSString stringWithFormat:@"venues/%@?", venueID] dictionaryKey:@"venueDictionary" httpMethod:@"GET"];
+	
+	//[self disectVenueInfo:venueDict];	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	return venueDict;
 }
 
+- (NSArray *)getVenueInfo:(NSString *)venueID venueType:(NSString *)type
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	NSDictionary *venueDict = [FSURLRequest URLString:[NSString stringWithFormat:@"venues/%@?", venueID] dictionaryKey:@"venueDictionary" httpMethod:@"GET"];
+	
+	NSArray *venueArray = [self disectVenueInfo:venueDict forType:type];
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return venueArray;
+}
+
 
 #pragma mark -
 #pragma mark Venue Information Disection
-- (void)disectVenueInfo:(NSDictionary *)dict
+- (NSArray *)disectVenueInfo:(NSDictionary *)dict forType:(NSString *)type
 {
+	NSArray *venueItems;
+	
 	NSDictionary *info = [dict objectForKey:@"venueDictionary"];
 	NSDictionary *response = [info objectForKey:@"response"];
 	NSArray *groups = [response objectForKey:@"groups"];
@@ -54,11 +69,17 @@
 		NSString *venueType = [groupItems objectForKey:@"type"];
 
 		if ([venueType isEqualToString:@"favorites"]) {
-			self.favoriteVenueItems = [groupItems objectForKey:@"items"];
+			//self.favoriteVenueItems = [groupItems objectForKey:@"items"];
+			venueItems = [groupItems objectForKey:@"items"];
+			
+			return venueItems;
 		}
 		
 		if ([venueType isEqualToString:@"nearby"]) {
-			self.nearbyVenueItems = [groupItems objectForKey:@"items"];
+			//self.nearbyVenueItems = [groupItems objectForKey:@"items"];
+			venueItems = [groupItems objectForKey:@"items"];
+			
+			return venueItems;			
 		}				
 	}
 }

@@ -144,7 +144,7 @@
 
 #pragma mark -
 #pragma mark User Acations API Request
-- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSString *)data
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	

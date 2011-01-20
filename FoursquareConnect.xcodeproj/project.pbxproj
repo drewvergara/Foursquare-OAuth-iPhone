@@ -22,6 +22,9 @@
 		1E2BFEAD12CA8EFF007445FA /* FSConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BFEAC12CA8EFF007445FA /* FSConnect.m */; };
 		1E4D112912B1587F002ACEAD /* fs-close-btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D112812B1587F002ACEAD /* fs-close-btn.png */; };
 		1E4D117B12B1B23D002ACEAD /* storage.js in Resources */ = {isa = PBXBuildFile; fileRef = 1E4D114312B1A974002ACEAD /* storage.js */; };
+		1E6ABBDF12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBDE12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m */; };
+		1E6ABBE212E8D50400C7BDEB /* FSVenueRequestorAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBE112E8D50400C7BDEB /* FSVenueRequestorAspects.m */; };
+		1E6ABBE512E8D50C00C7BDEB /* FSVenueRequestorActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBE412E8D50C00C7BDEB /* FSVenueRequestorActions.m */; };
 		1EC598BC12C2675F00F2A564 /* FSUserRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC598BB12C2675F00F2A564 /* FSUserRequestor.m */; };
 		1EC5990F12C27CE000F2A564 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5990A12C27CE000F2A564 /* NSObject+SBJSON.m */; };
 		1EC5991012C27CE000F2A564 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5990B12C27CE000F2A564 /* NSString+SBJSON.m */; };
@@ -59,6 +62,12 @@
 		1E2BFEAC12CA8EFF007445FA /* FSConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSConnect.m; sourceTree = "<group>"; };
 		1E4D112812B1587F002ACEAD /* fs-close-btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "fs-close-btn.png"; path = "Classes/fs-close-btn.png"; sourceTree = SOURCE_ROOT; };
 		1E4D114312B1A974002ACEAD /* storage.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = storage.js; path = Classes/storage.js; sourceTree = SOURCE_ROOT; };
+		1E6ABBDD12E8D4F900C7BDEB /* FSVenueRequestorGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenueRequestorGeneral.h; sourceTree = "<group>"; };
+		1E6ABBDE12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenueRequestorGeneral.m; sourceTree = "<group>"; };
+		1E6ABBE012E8D50400C7BDEB /* FSVenueRequestorAspects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenueRequestorAspects.h; sourceTree = "<group>"; };
+		1E6ABBE112E8D50400C7BDEB /* FSVenueRequestorAspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenueRequestorAspects.m; sourceTree = "<group>"; };
+		1E6ABBE312E8D50C00C7BDEB /* FSVenueRequestorActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenueRequestorActions.h; sourceTree = "<group>"; };
+		1E6ABBE412E8D50C00C7BDEB /* FSVenueRequestorActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenueRequestorActions.m; sourceTree = "<group>"; };
 		1EC598BA12C2675F00F2A564 /* FSUserRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUserRequestor.h; sourceTree = "<group>"; };
 		1EC598BB12C2675F00F2A564 /* FSUserRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUserRequestor.m; sourceTree = "<group>"; };
 		1EC5990412C27CE000F2A564 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = Classes/JSON.h; sourceTree = SOURCE_ROOT; };
@@ -178,6 +187,12 @@
 			children = (
 				1E14A63B12DE450800B5F277 /* FSVenueRequestor.h */,
 				1E14A63C12DE450800B5F277 /* FSVenueRequestor.m */,
+				1E6ABBDD12E8D4F900C7BDEB /* FSVenueRequestorGeneral.h */,
+				1E6ABBDE12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m */,
+				1E6ABBE012E8D50400C7BDEB /* FSVenueRequestorAspects.h */,
+				1E6ABBE112E8D50400C7BDEB /* FSVenueRequestorAspects.m */,
+				1E6ABBE312E8D50C00C7BDEB /* FSVenueRequestorActions.h */,
+				1E6ABBE412E8D50C00C7BDEB /* FSVenueRequestorActions.m */,
 			);
 			name = Venues;
 			sourceTree = "<group>";
@@ -386,6 +401,9 @@
 				1E25B17B12E67C68001B4A53 /* FSUserRequestorGeneral.m in Sources */,
 				1E25B17E12E67C7E001B4A53 /* FSUserRequestorAspects.m in Sources */,
 				1E25B18112E67C90001B4A53 /* FSUserRequestorActions.m in Sources */,
+				1E6ABBDF12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m in Sources */,
+				1E6ABBE212E8D50400C7BDEB /* FSVenueRequestorAspects.m in Sources */,
+				1E6ABBE512E8D50C00C7BDEB /* FSVenueRequestorActions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

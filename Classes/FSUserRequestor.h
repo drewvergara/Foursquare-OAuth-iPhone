@@ -59,7 +59,7 @@
 - (NSDictionary *)aspectsUserAPIRequest:(NSString *)type withUserID:(NSString *)usersID;
 - (NSDictionary *)aspectsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
 
-- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSString *)data;
+- (NSDictionary *)actionsUserAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
 - (NSDictionary *)actionsUserAPIRequest:(NSString *)type withUserID:(NSString *)usersID;
 
 - (void)disectUserInfo:(NSDictionary *)dict;

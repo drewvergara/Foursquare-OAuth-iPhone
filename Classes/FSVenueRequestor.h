@@ -19,6 +19,8 @@
 @property (nonatomic, retain) NSArray *nearbyVenueItems;
 
 - (id)initFSVenueRequest;
-- (NSDictionary *)getNearbyVenueInfo:(NSString *)latLong;
-- (void)disectVenueInfo:(NSDictionary *)dict;
+- (NSDictionary *)getVenueInfo:(NSString *)venueID;
+- (NSArray *)getVenueInfo:(NSString *)venueID venueType:(NSString *)type;
+- (NSArray *)disectVenueInfo:(NSDictionary *)dict forType:(NSString *)type;
+- (void)disectVenueInfo:(NSDictionary *)dict forType:(NSString *)type;
 @end
