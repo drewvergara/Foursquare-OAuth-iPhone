@@ -8,7 +8,6 @@
 
 #import "FSConnect.h"
 #import "FSUserRequestor.h"
-#import "FSFriendRequestor.h"
 #import "FSVenueRequestor.h"
 
 @implementation FSConnect
@@ -33,25 +32,13 @@
 {
 	FSUserRequestor *fsUser = [[FSUserRequestor alloc] initFSUser];
 	NSDictionary *userInfo  = [fsUser getUserInfo:@"self"];
-//	NSLog(@"userInfo: %@", userInfo);
+	NSLog(@"userInfo: %@", userInfo);
 
 //	NSDictionary *generalData = [fsUser generalUserAPIRequest:@"search" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"twitter", @"type", @"drewvergara", @"query", nil]];
 //	NSLog(@"generalData: %@", generalData);
 	
-	NSDictionary *aspectsData = [fsUser aspectsUserAPIRequest:@"badges" withUserID:@"self"];
+	NSDictionary *aspectsData = [fsUser aspectsUserAPIRequest:@"checkins" withRequestData:[NSDictionary dictionaryWithObjectsAndKeys:@"self", @"userID", @"10", @"limit", @"", @"offset", @"", @"afterTimestamp", @"", @"beforeTimestamp", nil]];
 	NSLog(@"aspectsData: %@", aspectsData);
-	
-	
-//	NSLog(@"userDictionary: %@", fsUser.userDictionary);
-//	NSLog(@"userFullName: %@", fsUser.fullName);
-//	NSLog(@"userID: %@", fsUser.userID);
-//	NSLog(@"userPhoto: %@", fsUser.userPhotoURL);
-//	NSLog(@"userHome: %@", fsUser.userHomeCity);
-	
-//	FSFriendRequestor *fsFriends = [[FSFriendRequestor alloc] initFSFriendRequestor:token];
-//	NSLog(@"friendDictionary: %@", fsFriends.friendDictionary);
-//	NSLog(@"friends: %@", fsFriends.friends);
-//	NSLog(@"friendCount: %@", fsFriends.numberOfFriends);
 	
 //	FSVenueRequestor *fsVenue = [[FSVenueRequestor alloc] initFSVenueRequest];
 //	NSDictionary *venueInfo = [fsVenue getNearbyVenueInfo:@"33.980478,-118.397191"];

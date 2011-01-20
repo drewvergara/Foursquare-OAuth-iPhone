@@ -27,6 +27,7 @@
 	[request setHTTPMethod:@"GET"];
 	[request setHTTPMethod:method];
 	[request setValue:@"application/text" forHTTPHeaderField:@"content-type"];
+
 	NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];	
 
 	NSString *results = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
@@ -34,6 +35,7 @@
 
 	//Create a dictionary with the data
 	NSMutableDictionary *dicResponse = [[NSMutableDictionary alloc] init];
+
 	SBJsonParser *json = [SBJsonParser new];
 	NSDictionary *dicJSON = [json objectWithString:results error:&error];
 	if (nil == dicJSON){

@@ -129,7 +129,7 @@
 	}
 	
 	if ([type isEqualToString:@"checkins"]) {
-
+		requestDict = [aspectsRequestor checkinsUserAPIRequest:data];
 	}
 	
 	if ([type isEqualToString:@"friends"]) {
