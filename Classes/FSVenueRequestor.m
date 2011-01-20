@@ -8,6 +8,9 @@
 
 #import "FSVenueRequestor.h"
 #import "FSURLRequest.h"
+#import "FSVenueRequestorGeneral.h"
+#import "FSVenueRequestorAspects.h"
+#import "FSVenueRequestorActions.h"
 
 @implementation FSVenueRequestor
 

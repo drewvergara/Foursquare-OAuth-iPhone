@@ -25,6 +25,19 @@
 		1E6ABBDF12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBDE12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m */; };
 		1E6ABBE212E8D50400C7BDEB /* FSVenueRequestorAspects.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBE112E8D50400C7BDEB /* FSVenueRequestorAspects.m */; };
 		1E6ABBE512E8D50C00C7BDEB /* FSVenueRequestorActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBE412E8D50C00C7BDEB /* FSVenueRequestorActions.m */; };
+		1E6ABBF912E8DAE600C7BDEB /* FSCheckinsRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBF812E8DAE600C7BDEB /* FSCheckinsRequestor.m */; };
+		1E6ABBFC12E8DAF600C7BDEB /* FSCheckinsRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBFB12E8DAF600C7BDEB /* FSCheckinsRequestorGeneral.m */; };
+		1E6ABBFF12E8DB0100C7BDEB /* FSCheckinsRequestorActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABBFE12E8DB0100C7BDEB /* FSCheckinsRequestorActions.m */; };
+		1E6ABC0212E8DB1B00C7BDEB /* FSTipsRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC0112E8DB1B00C7BDEB /* FSTipsRequestor.m */; };
+		1E6ABC0512E8DB3700C7BDEB /* FSTipsRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC0412E8DB3700C7BDEB /* FSTipsRequestorGeneral.m */; };
+		1E6ABC0812E8DB4800C7BDEB /* FSTipsRequestorActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC0712E8DB4800C7BDEB /* FSTipsRequestorActions.m */; };
+		1E6ABC0B12E8DB6300C7BDEB /* FSPhotosRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC0A12E8DB6300C7BDEB /* FSPhotosRequestor.m */; };
+		1E6ABC0E12E8DB7000C7BDEB /* FSPhotosRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC0D12E8DB7000C7BDEB /* FSPhotosRequestorGeneral.m */; };
+		1E6ABC1112E8DB8000C7BDEB /* FSSettingsRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC1012E8DB8000C7BDEB /* FSSettingsRequestor.m */; };
+		1E6ABC1412E8DB9800C7BDEB /* FSSettingsRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC1312E8DB9800C7BDEB /* FSSettingsRequestorGeneral.m */; };
+		1E6ABC1712E8DBA700C7BDEB /* FSSettingsRequestorActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC1612E8DBA700C7BDEB /* FSSettingsRequestorActions.m */; };
+		1E6ABC1A12E8DBBA00C7BDEB /* FSSpecialsRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC1912E8DBBA00C7BDEB /* FSSpecialsRequestor.m */; };
+		1E6ABC1D12E8DBC300C7BDEB /* FSSpecialsRequestorGeneral.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6ABC1C12E8DBC300C7BDEB /* FSSpecialsRequestorGeneral.m */; };
 		1EC598BC12C2675F00F2A564 /* FSUserRequestor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC598BB12C2675F00F2A564 /* FSUserRequestor.m */; };
 		1EC5990F12C27CE000F2A564 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5990A12C27CE000F2A564 /* NSObject+SBJSON.m */; };
 		1EC5991012C27CE000F2A564 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC5990B12C27CE000F2A564 /* NSString+SBJSON.m */; };
@@ -68,6 +81,32 @@
 		1E6ABBE112E8D50400C7BDEB /* FSVenueRequestorAspects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenueRequestorAspects.m; sourceTree = "<group>"; };
 		1E6ABBE312E8D50C00C7BDEB /* FSVenueRequestorActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVenueRequestorActions.h; sourceTree = "<group>"; };
 		1E6ABBE412E8D50C00C7BDEB /* FSVenueRequestorActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVenueRequestorActions.m; sourceTree = "<group>"; };
+		1E6ABBF712E8DAE600C7BDEB /* FSCheckinsRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCheckinsRequestor.h; sourceTree = "<group>"; };
+		1E6ABBF812E8DAE600C7BDEB /* FSCheckinsRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCheckinsRequestor.m; sourceTree = "<group>"; };
+		1E6ABBFA12E8DAF600C7BDEB /* FSCheckinsRequestorGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCheckinsRequestorGeneral.h; sourceTree = "<group>"; };
+		1E6ABBFB12E8DAF600C7BDEB /* FSCheckinsRequestorGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCheckinsRequestorGeneral.m; sourceTree = "<group>"; };
+		1E6ABBFD12E8DB0100C7BDEB /* FSCheckinsRequestorActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCheckinsRequestorActions.h; sourceTree = "<group>"; };
+		1E6ABBFE12E8DB0100C7BDEB /* FSCheckinsRequestorActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCheckinsRequestorActions.m; sourceTree = "<group>"; };
+		1E6ABC0012E8DB1B00C7BDEB /* FSTipsRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTipsRequestor.h; sourceTree = "<group>"; };
+		1E6ABC0112E8DB1B00C7BDEB /* FSTipsRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTipsRequestor.m; sourceTree = "<group>"; };
+		1E6ABC0312E8DB3700C7BDEB /* FSTipsRequestorGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTipsRequestorGeneral.h; sourceTree = "<group>"; };
+		1E6ABC0412E8DB3700C7BDEB /* FSTipsRequestorGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTipsRequestorGeneral.m; sourceTree = "<group>"; };
+		1E6ABC0612E8DB4800C7BDEB /* FSTipsRequestorActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTipsRequestorActions.h; sourceTree = "<group>"; };
+		1E6ABC0712E8DB4800C7BDEB /* FSTipsRequestorActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTipsRequestorActions.m; sourceTree = "<group>"; };
+		1E6ABC0912E8DB6300C7BDEB /* FSPhotosRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPhotosRequestor.h; sourceTree = "<group>"; };
+		1E6ABC0A12E8DB6300C7BDEB /* FSPhotosRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPhotosRequestor.m; sourceTree = "<group>"; };
+		1E6ABC0C12E8DB7000C7BDEB /* FSPhotosRequestorGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPhotosRequestorGeneral.h; sourceTree = "<group>"; };
+		1E6ABC0D12E8DB7000C7BDEB /* FSPhotosRequestorGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPhotosRequestorGeneral.m; sourceTree = "<group>"; };
+		1E6ABC0F12E8DB8000C7BDEB /* FSSettingsRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSettingsRequestor.h; sourceTree = "<group>"; };
+		1E6ABC1012E8DB8000C7BDEB /* FSSettingsRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSettingsRequestor.m; sourceTree = "<group>"; };
+		1E6ABC1212E8DB9800C7BDEB /* FSSettingsRequestorGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSettingsRequestorGeneral.h; sourceTree = "<group>"; };
+		1E6ABC1312E8DB9800C7BDEB /* FSSettingsRequestorGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSettingsRequestorGeneral.m; sourceTree = "<group>"; };
+		1E6ABC1512E8DBA700C7BDEB /* FSSettingsRequestorActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSettingsRequestorActions.h; sourceTree = "<group>"; };
+		1E6ABC1612E8DBA700C7BDEB /* FSSettingsRequestorActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSettingsRequestorActions.m; sourceTree = "<group>"; };
+		1E6ABC1812E8DBBA00C7BDEB /* FSSpecialsRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSpecialsRequestor.h; sourceTree = "<group>"; };
+		1E6ABC1912E8DBBA00C7BDEB /* FSSpecialsRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSpecialsRequestor.m; sourceTree = "<group>"; };
+		1E6ABC1B12E8DBC300C7BDEB /* FSSpecialsRequestorGeneral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSpecialsRequestorGeneral.h; sourceTree = "<group>"; };
+		1E6ABC1C12E8DBC300C7BDEB /* FSSpecialsRequestorGeneral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSpecialsRequestorGeneral.m; sourceTree = "<group>"; };
 		1EC598BA12C2675F00F2A564 /* FSUserRequestor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUserRequestor.h; sourceTree = "<group>"; };
 		1EC598BB12C2675F00F2A564 /* FSUserRequestor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUserRequestor.m; sourceTree = "<group>"; };
 		1EC5990412C27CE000F2A564 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JSON.h; path = Classes/JSON.h; sourceTree = SOURCE_ROOT; };
@@ -200,6 +239,12 @@
 		1E25B16A12E67B78001B4A53 /* Checkins */ = {
 			isa = PBXGroup;
 			children = (
+				1E6ABBF712E8DAE600C7BDEB /* FSCheckinsRequestor.h */,
+				1E6ABBF812E8DAE600C7BDEB /* FSCheckinsRequestor.m */,
+				1E6ABBFA12E8DAF600C7BDEB /* FSCheckinsRequestorGeneral.h */,
+				1E6ABBFB12E8DAF600C7BDEB /* FSCheckinsRequestorGeneral.m */,
+				1E6ABBFD12E8DB0100C7BDEB /* FSCheckinsRequestorActions.h */,
+				1E6ABBFE12E8DB0100C7BDEB /* FSCheckinsRequestorActions.m */,
 			);
 			name = Checkins;
 			sourceTree = "<group>";
@@ -207,6 +252,12 @@
 		1E25B17012E67B8D001B4A53 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
+				1E6ABC0012E8DB1B00C7BDEB /* FSTipsRequestor.h */,
+				1E6ABC0112E8DB1B00C7BDEB /* FSTipsRequestor.m */,
+				1E6ABC0312E8DB3700C7BDEB /* FSTipsRequestorGeneral.h */,
+				1E6ABC0412E8DB3700C7BDEB /* FSTipsRequestorGeneral.m */,
+				1E6ABC0612E8DB4800C7BDEB /* FSTipsRequestorActions.h */,
+				1E6ABC0712E8DB4800C7BDEB /* FSTipsRequestorActions.m */,
 			);
 			name = Tips;
 			sourceTree = "<group>";
@@ -214,6 +265,10 @@
 		1E25B17112E67B96001B4A53 /* Photos */ = {
 			isa = PBXGroup;
 			children = (
+				1E6ABC0912E8DB6300C7BDEB /* FSPhotosRequestor.h */,
+				1E6ABC0A12E8DB6300C7BDEB /* FSPhotosRequestor.m */,
+				1E6ABC0C12E8DB7000C7BDEB /* FSPhotosRequestorGeneral.h */,
+				1E6ABC0D12E8DB7000C7BDEB /* FSPhotosRequestorGeneral.m */,
 			);
 			name = Photos;
 			sourceTree = "<group>";
@@ -221,6 +276,10 @@
 		1E25B17212E67BA0001B4A53 /* Specials */ = {
 			isa = PBXGroup;
 			children = (
+				1E6ABC1812E8DBBA00C7BDEB /* FSSpecialsRequestor.h */,
+				1E6ABC1912E8DBBA00C7BDEB /* FSSpecialsRequestor.m */,
+				1E6ABC1B12E8DBC300C7BDEB /* FSSpecialsRequestorGeneral.h */,
+				1E6ABC1C12E8DBC300C7BDEB /* FSSpecialsRequestorGeneral.m */,
 			);
 			name = Specials;
 			sourceTree = "<group>";
@@ -228,6 +287,12 @@
 		1E25B17412E67BA8001B4A53 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				1E6ABC0F12E8DB8000C7BDEB /* FSSettingsRequestor.h */,
+				1E6ABC1012E8DB8000C7BDEB /* FSSettingsRequestor.m */,
+				1E6ABC1212E8DB9800C7BDEB /* FSSettingsRequestorGeneral.h */,
+				1E6ABC1312E8DB9800C7BDEB /* FSSettingsRequestorGeneral.m */,
+				1E6ABC1512E8DBA700C7BDEB /* FSSettingsRequestorActions.h */,
+				1E6ABC1612E8DBA700C7BDEB /* FSSettingsRequestorActions.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -404,6 +469,19 @@
 				1E6ABBDF12E8D4F900C7BDEB /* FSVenueRequestorGeneral.m in Sources */,
 				1E6ABBE212E8D50400C7BDEB /* FSVenueRequestorAspects.m in Sources */,
 				1E6ABBE512E8D50C00C7BDEB /* FSVenueRequestorActions.m in Sources */,
+				1E6ABBF912E8DAE600C7BDEB /* FSCheckinsRequestor.m in Sources */,
+				1E6ABBFC12E8DAF600C7BDEB /* FSCheckinsRequestorGeneral.m in Sources */,
+				1E6ABBFF12E8DB0100C7BDEB /* FSCheckinsRequestorActions.m in Sources */,
+				1E6ABC0212E8DB1B00C7BDEB /* FSTipsRequestor.m in Sources */,
+				1E6ABC0512E8DB3700C7BDEB /* FSTipsRequestorGeneral.m in Sources */,
+				1E6ABC0812E8DB4800C7BDEB /* FSTipsRequestorActions.m in Sources */,
+				1E6ABC0B12E8DB6300C7BDEB /* FSPhotosRequestor.m in Sources */,
+				1E6ABC0E12E8DB7000C7BDEB /* FSPhotosRequestorGeneral.m in Sources */,
+				1E6ABC1112E8DB8000C7BDEB /* FSSettingsRequestor.m in Sources */,
+				1E6ABC1412E8DB9800C7BDEB /* FSSettingsRequestorGeneral.m in Sources */,
+				1E6ABC1712E8DBA700C7BDEB /* FSSettingsRequestorActions.m in Sources */,
+				1E6ABC1A12E8DBBA00C7BDEB /* FSSpecialsRequestor.m in Sources */,
+				1E6ABC1D12E8DBC300C7BDEB /* FSSpecialsRequestorGeneral.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
