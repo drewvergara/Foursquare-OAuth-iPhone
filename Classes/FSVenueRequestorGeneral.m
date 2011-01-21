@@ -7,7 +7,7 @@
 //
 
 #import "FSVenueRequestorGeneral.h"
-
+#import "FSURLRequest.h"
 
 @implementation FSVenueRequestorGeneral
 
@@ -20,6 +20,8 @@
 {
 	NSString *venueName = [queryData objectForKey:@"name"];
 	NSString *query = @"?";
+	
+	query = [query stringByAppendingString:[NSString stringWithFormat:@"name=%@&", venueName]];
 	
 	if (![(NSString *)[queryData objectForKey:@"address"] isEqualToString:@""]) {
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"address=%@&", (NSString *)[queryData objectForKey:@"address"]]];
@@ -92,12 +94,12 @@
 	
 	NSDictionary *venueSearchDict = [FSURLRequest URLString:[NSString stringWithFormat:@"venues/search%@", query] dictionaryKey:@"venueSearchDictionary" httpMethod:@"GET"];
 		
-	return nil;
+	return venueSearchDict;
 }
 
 - (NSDictionary *)categoriesVenueAPIRequest
 {
-	NSDictionary *venueCategoriesDict = [FSURLRequest URLString:[NSString stringWithFormat:@"venues/categories?", userID] dictionaryKey:@"venueCategoriesDictionary" httpMethod:@"GET"];
+	NSDictionary *venueCategoriesDict = [FSURLRequest URLString:@"venues/categories?" dictionaryKey:@"venueCategoriesDictionary" httpMethod:@"GET"];
 	
 	return venueCategoriesDict;
 }
