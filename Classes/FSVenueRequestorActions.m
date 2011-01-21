@@ -15,6 +15,9 @@
 {
 	return self;
 }
+
+#pragma mark -
+#pragma mark Venues Mark Todo API Request
 - (NSDictionary *)marktodoVenueAPIRequest:(NSDictionary *)queryData
 {
 	NSString *venueID = [queryData objectForKey:@"venueID"];
@@ -29,6 +32,8 @@
 	return venueMarktodoDict;
 }
 
+#pragma mark -
+#pragma mark Venues Flag API Request
 - (NSDictionary *)flagVenueAPIRequest:(NSDictionary *)queryData
 {
 	NSString *venueID = [queryData objectForKey:@"venueID"];
@@ -43,6 +48,8 @@
 	return venueFlagDict;
 }
 
+#pragma mark -
+#pragma mark Venues Propose Edit API Request
 - (NSDictionary *)proposeeditVenueAPIRequest:(NSDictionary *)queryData
 {
 	NSString *venueID = [queryData objectForKey:@"venueID"];

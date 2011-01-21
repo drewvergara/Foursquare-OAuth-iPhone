@@ -99,38 +99,50 @@
 
 #pragma mark -
 #pragma mark Venues Aspects API Request
-- (NSDictionary *)aspectsVenueAPIRequest:(NSString *)type
+- (NSDictionary *)aspectsVenueAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	FSVenueRequestorGeneral *generalRequestor = [[FSVenueRequestorGeneral alloc] initFSRequestorGeneral];
+	FSVenueRequestorAspects *aspectsRequestor = [[FSVenueRequestorAspects alloc] initFSRequestorAspects];
 	NSDictionary *requestDict;
 	
-	if ([type isEqualToString:@"categories"]) {
-		requestDict = [generalRequestor categoriesVenueAPIRequest];
-	}else {
-		requestDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Bad Request", @"error", nil];
+	if ([type isEqualToString:@"herenow"]) {		
+		requestDict = [aspectsRequestor herenowVenueAPIRequest:data];
 	}
+	
+	if ([type isEqualToString:@"tips"]) {
+		requestDict = [aspectsRequestor tipsVenueAPIRequest:data];
+	}
+
+	if ([type isEqualToString:@"photos"]) {
+		requestDict = [aspectsRequestor photosVenueAPIRequest:data];
+	}	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	return requestDict;
 }
 
-- (NSDictionary *)aspectsVenueAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+#pragma mark -
+#pragma mark Venues Actions API Request
+- (NSDictionary *)actionsVenueAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
 {
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	FSVenueRequestorGeneral *generalRequestor = [[FSVenueRequestorGeneral alloc] initFSRequestorGeneral];
+	FSVenueRequestorActions *actionsRequestor = [[FSVenueRequestorActions alloc] initFSRequestorActions];
 	NSDictionary *requestDict;
 	
-	if ([type isEqualToString:@"add"]) {		
-		requestDict = [generalRequestor addVenueAPIRequest:data];
+	if ([type isEqualToString:@"marktodo"]) {		
+		requestDict = [actionsRequestor marktodoVenueAPIRequest:data];
 	}
 	
-	if ([type isEqualToString:@"search"]) {
-		requestDict = [generalRequestor searchVenueAPIRequest:data];
+	if ([type isEqualToString:@"flag"]) {
+		requestDict = [actionsRequestor flagVenueAPIRequest:data];
 	}
+
+	if ([type isEqualToString:@"proposeedit"]) {
+		requestDict = [actionsRequestor proposeeditVenueAPIRequest:data];
+	}	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
