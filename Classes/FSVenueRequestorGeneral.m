@@ -16,6 +16,8 @@
 	return self;
 }
 
+#pragma mark -
+#pragma mark Venue Add API Request
 - (NSDictionary *)addVenueAPIRequest:(NSDictionary *)queryData
 {
 	NSString *venueName = [queryData objectForKey:@"name"];
@@ -60,6 +62,8 @@
 	return venueAddDict;
 }
 
+#pragma mark -
+#pragma mark Venue Search API Request
 - (NSDictionary *)searchVenueAPIRequest:(NSDictionary *)queryData
 {
 	NSString *query = @"?";
@@ -97,6 +101,8 @@
 	return venueSearchDict;
 }
 
+#pragma mark -
+#pragma mark Venue Categories API Request
 - (NSDictionary *)categoriesVenueAPIRequest
 {
 	NSDictionary *venueCategoriesDict = [FSURLRequest URLString:@"venues/categories?" dictionaryKey:@"venueCategoriesDictionary" httpMethod:@"GET"];
