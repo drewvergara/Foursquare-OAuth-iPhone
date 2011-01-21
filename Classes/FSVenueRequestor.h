@@ -26,5 +26,8 @@
 - (NSDictionary *)generalVenueAPIRequest:(NSString *)type;
 - (NSDictionary *)generalVenueAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
 
+- (NSDictionary *)aspectsVenueAPIRequest:(NSString *)type;
+- (NSDictionary *)aspectsVenueAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
+
 - (NSArray *)disectVenueInfo:(NSDictionary *)dict forType:(NSString *)type;
 @end

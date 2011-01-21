@@ -7,7 +7,7 @@
 //
 
 #import "FSVenueRequestorAspects.h"
-
+#import "FSURLRequest.h"
 
 @implementation FSVenueRequestorAspects
 
