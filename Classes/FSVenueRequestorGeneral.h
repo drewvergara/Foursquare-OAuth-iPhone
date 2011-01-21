@@ -16,5 +16,5 @@
 - (id)initFSRequestorGeneral;
 - (NSDictionary *)addVenueAPIRequest:(NSDictionary *)queryData;
 - (NSDictionary *)searchVenueAPIRequest:(NSDictionary *)queryData;
-- (NSDictionary *)categoriesVenueAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)categoriesVenueAPIRequest;
 @end

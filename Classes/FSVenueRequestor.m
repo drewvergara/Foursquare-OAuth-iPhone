@@ -58,6 +58,46 @@
 
 
 #pragma mark -
+#pragma mark Venues General API Request
+- (NSDictionary *)generalVenueAPIRequest:(NSString *)type
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSVenueRequestorGeneral *generalRequestor = [[FSVenueRequestorGeneral alloc] initFSRequestorGeneral];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"categories"]) {
+		requestDict = [generalRequestor categoriesVenueAPIRequest];
+	}else {
+		requestDict = [NSDictionary dictionaryWithObjectsAndKeys:@"Bad Request", @"error", nil];
+	}
+		
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+- (NSDictionary *)generalVenueAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSVenueRequestorGeneral *generalRequestor = [[FSVenueRequestorGeneral alloc] initFSRequestorGeneral];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"add"]) {		
+		requestDict = [generalRequestor addVenueAPIRequest:data];
+	}
+	
+	if ([type isEqualToString:@"search"]) {
+		requestDict = [generalRequestor searchVenueAPIRequest:data];
+	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+#pragma mark -
 #pragma mark Venue Information Disection
 - (NSArray *)disectVenueInfo:(NSDictionary *)dict forType:(NSString *)type
 {

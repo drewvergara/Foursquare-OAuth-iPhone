@@ -31,19 +31,19 @@
 {
 	NSString *userID = [queryData objectForKey:@"userID"];
 	NSString *query = @"?";
-	
+
 	if (![(NSString *)[queryData objectForKey:@"limit"] isEqualToString:@""]) {
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"limit=%@&", (NSString *)[queryData objectForKey:@"limit"]]];
 	}
-	
+
 	if (![(NSString *)[queryData objectForKey:@"offset"] isEqualToString:@""]) {
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"offset=%@&", (NSString *)[queryData objectForKey:@"limit"]]];
 	}
-	
+
 	if (![(NSString *)[queryData objectForKey:@"afterTimestamp"] isEqualToString:@""]) {
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"afterTimestamp=%@&", (NSString *)[queryData objectForKey:@"limit"]]];
 	}
-	
+
 	if (![(NSString *)[queryData objectForKey:@"beforeTimestamp"] isEqualToString:@""]) {
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"beforeTimestamp=%@&", (NSString *)[queryData objectForKey:@"limit"]]];
 	}
