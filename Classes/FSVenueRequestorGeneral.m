@@ -21,7 +21,7 @@
 - (NSDictionary *)addVenueAPIRequest:(NSDictionary *)queryData
 {
 	NSString *venueName = [queryData objectForKey:@"name"];
-	NSString *query = @"?";
+	NSString *query;
 	
 	query = [query stringByAppendingString:[NSString stringWithFormat:@"name=%@&", venueName]];
 	
@@ -57,7 +57,7 @@
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"primaryCategoryId=%@&", (NSString *)[queryData objectForKey:@"primaryCategoryId"]]];
 	}	
 	
-	NSDictionary *venueAddDict = [FSURLRequest URLString:@"venues/add" dictionaryKey:@"venueAddDictionary" httpMethod:@"POST" withPOSTData:[NSString stringWithFormat:@"%@", query]];
+	NSDictionary *venueAddDict = [FSURLRequest URLString:@"venues/add?" dictionaryKey:@"venueAddDictionary" httpMethod:@"POST" withPOSTData:[NSString stringWithFormat:@"%@", query]];
 	
 	return venueAddDict;
 }
