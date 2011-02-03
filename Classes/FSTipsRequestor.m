@@ -38,4 +38,26 @@
 	return tipsDict;
 }
 
+#pragma mark -
+#pragma mark Tips General API Request
+- (NSDictionary *)generalTipsAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSTipsRequestorGeneral *generalRequestor = [[FSTipsRequestorGeneral alloc] initFSRequestorGeneral];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"add"]) {		
+		requestDict = [generalRequestor addCheckinAPIRequest:data];
+	}
+	
+	if ([type isEqualToString:@"search"]) {
+		requestDict = [generalRequestor recentCheckinAPIRequest:data];
+	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
 @end

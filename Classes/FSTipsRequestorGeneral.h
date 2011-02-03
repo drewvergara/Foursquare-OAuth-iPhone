@@ -13,4 +13,6 @@
 
 }
 
+- (id)initFSRequestorGeneral;
+- (NSDictionary *)addTipsAPIRequest:(NSDictionary *)queryData;
 @end
