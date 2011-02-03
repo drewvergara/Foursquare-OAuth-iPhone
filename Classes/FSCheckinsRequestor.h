@@ -17,4 +17,5 @@
 - (NSDictionary *)getCheckinsInfo:(NSString *)venueID;
 - (NSDictionary *)generalCheckinAPIRequest:(NSString *)type;
 - (NSDictionary *)generalCheckinAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
+- (NSDictionary *)actionsCheckinsAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
 @end
