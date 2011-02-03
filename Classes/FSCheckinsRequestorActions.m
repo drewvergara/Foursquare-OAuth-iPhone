@@ -7,7 +7,7 @@
 //
 
 #import "FSCheckinsRequestorActions.h"
-
+#import "FSURLRequest.h"
 
 @implementation FSCheckinsRequestorActions
 

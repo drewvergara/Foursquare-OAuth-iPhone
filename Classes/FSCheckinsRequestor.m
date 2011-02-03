@@ -79,4 +79,26 @@
 	
 	return requestDict;
 }
+
+#pragma mark -
+#pragma mark Checkins Actions API Request
+- (NSDictionary *)actionsCheckinsAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSCheckinsRequestorActions *actionsRequestor = [[FSCheckinsRequestorActions alloc] initFSRequestorActions];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"addcomment"]) {
+		requestDict = [actionsRequestor addcommentCheckinsAPIRequest:data];
+	}
+	
+	if ([type isEqualToString:@"deletecomment"]) {
+		requestDict = [actionsRequestor deletecommentCheckinsAPIRequest:data];
+	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
 @end
