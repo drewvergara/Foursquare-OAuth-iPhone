@@ -13,4 +13,8 @@
 
 }
 
+- (id)initFSRequestorGeneral;
+- (NSDictionary *)addCheckinAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)recentCheckinAPIRequest:(NSDictionary *)queryData;
+
 @end

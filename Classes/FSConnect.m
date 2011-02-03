@@ -9,6 +9,7 @@
 #import "FSConnect.h"
 #import "FSUserRequestor.h"
 #import "FSVenueRequestor.h"
+#import "FSCheckinsRequestor.h"
 
 @implementation FSConnect
 

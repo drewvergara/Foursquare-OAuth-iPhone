@@ -13,4 +13,8 @@
 
 }
 
+- (id)initFSCheckinsRequest;
+- (NSDictionary *)getCheckinsInfo:(NSString *)venueID;
+- (NSDictionary *)generalCheckinAPIRequest:(NSString *)type;
+- (NSDictionary *)generalCheckinAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
 @end
