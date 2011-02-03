@@ -33,8 +33,6 @@
 	
 	NSDictionary *checkinsDict = [FSURLRequest URLString:[NSString stringWithFormat:@"checkins/%@?", checkinID] dictionaryKey:@"checkinDictionary" httpMethod:@"GET"];
 	
-	//[self disectVenueInfo:venueDict];	
-	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	return checkinsDict;

@@ -33,8 +33,6 @@
 
 	NSDictionary *tipsDict = [FSURLRequest URLString:[NSString stringWithFormat:@"tips/%@?", tipID] dictionaryKey:@"tipsDictionary" httpMethod:@"GET"];
 
-	//[self disectVenueInfo:venueDict];	
-
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
 	return tipsDict;
