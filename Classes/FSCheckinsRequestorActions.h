@@ -13,4 +13,7 @@
 
 }
 
+- (id)initFSRequestorActions;
+- (NSDictionary *)addcommentCheckinsAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)deletecommentCheckinsAPIRequest:(NSDictionary *)queryData;
 @end
