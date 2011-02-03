@@ -15,4 +15,7 @@
 
 - (id)initFSTipsRequestor;
 - (NSDictionary *)getTipsInfo:(NSString *)tipID;
+- (NSDictionary *)generalTipsAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
+- (NSDictionary *)actionsTipsAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data;
+
 @end

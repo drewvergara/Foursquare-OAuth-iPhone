@@ -3,7 +3,7 @@
 //  FoursquareConnect
 //
 //  Created by Andrew Vergara on 1/12/11.
-//  Copyright 2011 72andSunny. All rights reserved.
+//  Copyright 2011. All rights reserved.
 //
 
 #import "FSVenueRequestor.h"

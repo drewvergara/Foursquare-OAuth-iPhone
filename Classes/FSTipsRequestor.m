@@ -3,7 +3,7 @@
 //  FoursquareConnect
 //
 //  Created by Andrew Vergara on 1/20/11.
-//  Copyright 2011 72andSunny. All rights reserved.
+//  Copyright 2011. All rights reserved.
 //
 
 #import "FSTipsRequestor.h"
@@ -72,15 +72,15 @@
 	NSDictionary *requestDict;
 	
 	if ([type isEqualToString:@"marktodo"]) {		
-		requestDict = [actionsRequestor marktodoVenueAPIRequest:data];
+		requestDict = [actionsRequestor marktodoTipsAPIRequest:data];
 	}
 	
 	if ([type isEqualToString:@"markdone"]) {
-		requestDict = [actionsRequestor flagVenueAPIRequest:data];
+		requestDict = [actionsRequestor markdoneTipsAPIRequest:data];
 	}
 	
 	if ([type isEqualToString:@"unmark"]) {
-		requestDict = [actionsRequestor proposeeditVenueAPIRequest:data];
+		requestDict = [actionsRequestor unmarkTipsAPIRequest:data];
 	}	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;

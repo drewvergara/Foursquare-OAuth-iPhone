@@ -3,7 +3,7 @@
 //  FoursquareConnect
 //
 //  Created by Andrew Vergara on 12/28/10.
-//  Copyright 2010 72andSunny. All rights reserved.
+//  Copyright 2010. All rights reserved.
 //
 
 #import "FSConnect.h"

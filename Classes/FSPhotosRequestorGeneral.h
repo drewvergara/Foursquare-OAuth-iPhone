@@ -13,4 +13,7 @@
 
 }
 
+- (id)initFSRequestorGeneral;
+- (NSDictionary *)addPhotoAPIRequest:(NSDictionary *)queryData;
+
 @end
