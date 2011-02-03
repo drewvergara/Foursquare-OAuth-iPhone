@@ -13,4 +13,8 @@
 
 }
 
+- (id)initFSSpecialsRequestor;
+- (NSDictionary *)getSpecialsInfo:(NSString *)specialID;
+- (NSDictionary *)generalSettingsAPIRequest:(NSString *)type;
+
 @end
