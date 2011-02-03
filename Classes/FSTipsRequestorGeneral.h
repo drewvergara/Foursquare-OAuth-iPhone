@@ -15,4 +15,5 @@
 
 - (id)initFSRequestorGeneral;
 - (NSDictionary *)addTipsAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)searchTipsAPIRequest:(NSDictionary *)queryData;
 @end

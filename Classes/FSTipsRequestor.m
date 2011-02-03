@@ -48,11 +48,11 @@
 	NSDictionary *requestDict;
 	
 	if ([type isEqualToString:@"add"]) {		
-		requestDict = [generalRequestor addCheckinAPIRequest:data];
+		requestDict = [generalRequestor addTipsAPIRequest:data];
 	}
 	
 	if ([type isEqualToString:@"search"]) {
-		requestDict = [generalRequestor recentCheckinAPIRequest:data];
+		requestDict = [generalRequestor searchTipsAPIRequest:data];
 	}
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
