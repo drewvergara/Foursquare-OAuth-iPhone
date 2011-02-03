@@ -8,6 +8,8 @@
 
 #import "FSTipsRequestor.h"
 #import "FSURLRequest.h"
+#import "FSTipsRequestorGeneral.h"
+#import "FSTipsRequestorActions.h"
 
 @implementation FSTipsRequestor
 
@@ -54,6 +56,32 @@
 	if ([type isEqualToString:@"search"]) {
 		requestDict = [generalRequestor searchTipsAPIRequest:data];
 	}
+	
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	return requestDict;
+}
+
+#pragma mark -
+#pragma mark Tips Actions API Request
+- (NSDictionary *)actionsTipsAPIRequest:(NSString *)type withRequestData:(NSDictionary *)data
+{
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	
+	FSTipsRequestorActions *actionsRequestor = [[FSTipsRequestorActions alloc] initFSRequestorActions];
+	NSDictionary *requestDict;
+	
+	if ([type isEqualToString:@"marktodo"]) {		
+		requestDict = [actionsRequestor marktodoVenueAPIRequest:data];
+	}
+	
+	if ([type isEqualToString:@"markdone"]) {
+		requestDict = [actionsRequestor flagVenueAPIRequest:data];
+	}
+	
+	if ([type isEqualToString:@"unmark"]) {
+		requestDict = [actionsRequestor proposeeditVenueAPIRequest:data];
+	}	
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	

@@ -13,4 +13,9 @@
 
 }
 
+- (id)initFSTipsRequestorActions;
+- (NSDictionary *)marktodoTipsAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)markdoneTipsAPIRequest:(NSDictionary *)queryData;
+- (NSDictionary *)unmarkTipsAPIRequest:(NSDictionary *)queryData;
+
 @end

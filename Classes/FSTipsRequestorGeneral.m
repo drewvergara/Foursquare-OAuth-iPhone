@@ -7,7 +7,7 @@
 //
 
 #import "FSTipsRequestorGeneral.h"
-
+#import "FSURLRequest.h"
 
 @implementation FSTipsRequestorGeneral
 
@@ -25,7 +25,7 @@
 	NSString *query;
 	
 	query = [query stringByAppendingString:[NSString stringWithFormat:@"venueID=%@&", venueID]];
-	query = [query stringByAppendingString:[NSString stringWithFormat:@"text=%@&", text]]];
+	query = [query stringByAppendingString:[NSString stringWithFormat:@"text=%@&", text]];
 	
 	if (![(NSString *)[queryData objectForKey:@"url"] isEqualToString:@""]) {
 		query = [query stringByAppendingString:[NSString stringWithFormat:@"url=%@&", (NSString *)[queryData objectForKey:@"url"]]];
