@@ -13,4 +13,6 @@
 
 }
 
+- (id)initFSTipsRequestor;
+- (NSDictionary *)getTipsInfo:(NSString *)tipID;
 @end
